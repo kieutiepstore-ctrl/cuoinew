@@ -33,6 +33,12 @@ function openCard(){
       setTimeout(()=> inviteDate.classList.add('show'), 800);     // ngày tháng
     }, 200);
 
+    const titles = document.querySelectorAll('.title-main');
+    titles.forEach((title, i) => {
+      setTimeout(() => {
+        title.classList.add('show'); // bật animation từng chữ
+      }, i * 1000); // delay 0.4s giữa các chữ
+    });
     // Bắt đầu tim bay qua lại
     startHearts();
   },900);
@@ -122,3 +128,17 @@ function drawHeart() {
 
 drawHeart();
 
+// Scroll reveal cho album ảnh
+const albumItems = document.querySelectorAll('.wedding-album .album-item');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+
+  albumItems.forEach(item => {
+    if(item.getBoundingClientRect().top < trigger){
+      const img = item.querySelector('img');
+      item.classList.add('show');
+      img.classList.add('show');
+    }
+  });
+});

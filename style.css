@@ -277,3 +277,117 @@ button:hover { opacity: 0.85; }
 .divider-bottom.show {
   width: 80%;
 }
+/* Phần form RSVP */
+.rsvp-section {
+  background: #fff9f9;
+  padding: 3rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.rsvp-section:hover {
+  transform: translateY(-5px);
+}
+
+.rsvp-title {
+  font-family: 'Great Vibes', cursive;
+  color: #d98880;
+  letter-spacing: 1px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e0c8c8;
+  border-radius: 12px;
+  background-color: #fff;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+}
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  border-color: #d98880;
+  box-shadow: 0 0 10px rgba(217,136,128,0.3);
+  outline: none;
+}
+
+.rsvp-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><polygon points='0,0 14,0 7,8' fill='%23d98880'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 8px;
+  padding-right: 40px;
+}
+
+.rsvp-btn {
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(135deg, #ffb6c1, #d98880);
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.rsvp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(217,136,128,0.4);
+}
+.rsvp-form input[type="number"] {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+/* Album ảnh cưới */
+.wedding-album img.show {
+  opacity: 1;
+  transform: scale(1);
+  height: 350px;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 1s ease;
+}
+
+.reveal-left { transform: translateX(-100px); }
+.reveal-right { transform: translateX(100px); }
+
+.reveal-left.show,
+.reveal-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.title-main {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  color: #d98880;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+@keyframes zoomTitle {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.title-main.show {
+  animation: zoomTitle 1s ease-out forwards;
+}

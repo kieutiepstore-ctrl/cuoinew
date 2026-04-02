@@ -16,11 +16,12 @@
   <div id="leftDoor" class="door w-1/2 bg-black"></div>
   <div id="rightDoor" class="door w-1/2 flex items-center justify-center">
     <div class="text-center">
-      <h1 class="title text-4xl text-white">Quang Anh & Như Quỳnh</h1>
-      <button onclick="openCard()" class="mt-6 px-6 py-3 rounded-full">Mở thiệp</button>
+      <button onclick="openCard()" class="mt-6 px-6 py-3 rounded-full bg-pink-500 text-white hover:bg-pink-600 transition">Mở thiệp</button>
     </div>
   </div>
 </div>
+
+
 
 <!-- MAIN -->
 <div id="card" class="hidden">
@@ -38,8 +39,8 @@
   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-gray-800 invite-container">
     <h1 class="invite-title">Thư tiệc mời cưới</h1>
     <div class="divider divider-top"></div>
-    <p class="invite-time">10:30 Chủ nhật</p>
-    <p class="invite-date">14.12.2026</p>
+    <p class="invite-time">18:00 Thứ Tư</p>
+    <p class="invite-date">14/04/2026</p>
     <div class="divider divider-bottom"></div>
   </div>
 </section>
@@ -47,7 +48,7 @@
   <!-- MỜI KHÁCH -->
   <section class="max-w-3xl mx-auto px-4 text-center mt-10">
     <p>Trân trọng kính mời</p>
-    <p class="invite-name">Anh Nguyễn Văn ABC</p>
+    <p class="invite-name">Mời cả lò nhà nhóm</p>
     <p class="text-gray-600 text-sm mt-2">Đến dự buổi tiệc chung vui cùng gia đình chúng tôi</p>
   </section>
 
@@ -177,21 +178,24 @@
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">8</div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">9</div>
     <!-- Ngày có sự kiện -->
-    <div class="day p-2 rounded-lg border border-red-400 bg-red-100 font-bold relative">
+    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">
       10
-      <span class="absolute top-1 right-1 text-red-500 text-sm">❤️</span>
+      
     </div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">11</div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">12</div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">13</div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">14</div>
 
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">15</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">16</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">17</div>
-    <div class="day p-2 rounded-lg border border-red-400 bg-red-100 font-bold relative">
-      18
+    <div class="day p-2 rounded-lg border border-red-400 bg-red-100 font-bold relative">15 
       <span class="absolute top-1 right-1 text-red-500 text-sm">❤️</span>
+    </div>
+    <div class="day p-2 rounded-lg border border-red-400 bg-red-100 font-bold relative">16
+      <span class="absolute top-1 right-1 text-red-500 text-sm">❤️</span>
+    </div>
+    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">17</div>
+    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">
+      18
     </div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">19</div>
     <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">20</div>
@@ -211,7 +215,20 @@
 </div>
 
   </section>
-
+<!-- ALBUM ẢNH CƯỚI -->
+<section class="mt-20 max-w-5xl mx-auto px-4 wedding-album reveal">
+  <h2 class="text-3xl font-semibold text-center mb-8 text-pink-400">Album Ảnh Cưới</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="album-item reveal-left"><img src="img/DSC05360.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-right"><img src="img/DSC05403.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-left"><img src="img/DSC05585.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-right"><img src="img/DSC05601.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-left"><img src="img/DSC05605.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-right"><img src="img/DSC05605.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-left"><img src="img/DSC05659.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+    <div class="album-item reveal-right"><img src="img/DSC06894.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+  </div>
+</section>
   <!-- GOOGLE MAP -->
   <section class="mt-10 text-center reveal max-w-3xl mx-auto px-4">
     <h3 class="text-lg font-semibold text-black mb-4">Địa điểm tiệc cưới</h3>
@@ -229,31 +246,26 @@
   </section>
 
   <!-- RSVP -->
-  <section class="mt-20 pb-20 max-w-3xl mx-auto px-4 bg-white shadow-lg rounded-lg">
-    <h3 class="text-center text-2xl font-semibold text-gray-800 mb-8">Xác nhận tham dự</h3>
+  <section class="mt-20 pb-20 max-w-3xl mx-auto px-6 bg-white shadow-2xl rounded-3xl rsvp-section">
+  <h3 class="text-center text-3xl font-semibold text-gray-800 mb-8 rsvp-title">Xác nhận tham dự</h3>
 
-    <form class="space-y-6">
-      <div>
-        <label for="name" class="block text-gray-700 font-medium mb-2">Họ và tên</label>
-        <input id="name" name="name" type="text" placeholder="Nhập họ và tên của bạn" required>
-      </div>
-      <div>
-        <label for="attendance" class="block text-gray-700 font-medium mb-2">Tình trạng tham dự</label>
-        <select id="attendance" name="attendance" required>
-          <option value="" disabled selected>Chọn lựa chọn của bạn</option>
-          <option value="yes">Tham dự</option>
-          <option value="no">Không tham dự</option>
-        </select>
-      </div>
-      <div>
-        <label for="message" class="block text-gray-700 font-medium mb-2">Lời chúc / Ghi chú</label>
-        <textarea id="message" name="message" placeholder="Nhập lời chúc của bạn..."></textarea>
-      </div>
-      <div class="text-center">
-        <button type="submit">Gửi</button>
-      </div>
-    </form>
-  </section>
+  <form class="rsvp-form">
+  <label for="name">Họ và tên</label>
+  <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
+
+  <label for="attendance">Tình trạng tham dự</label>
+  <select id="attendance" name="attendance" required>
+    <option value="" disabled selected>Chọn lựa chọn của bạn</option>
+    <option value="tham-du">Tham dự</option>
+    <option value="khong-tham-du">Không tham dự</option>
+  </select>
+
+  <label for="guestCount">Số người tham dự</label>
+  <input type="number" id="guestCount" name="guestCount" min="1" max="10" value="1" required>
+
+  <button type="submit mt-4" class="rsvp-btn">Gửi lời mời</button>
+</form>
+</section>
 
 </div>
 
