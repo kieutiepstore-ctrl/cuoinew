@@ -7,6 +7,7 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,12 +29,12 @@
 
   <!-- HERO FULL WIDTH -->
 <section class="relative w-full">
-  <img src="img/DSC05585.JPG" class="w-full h-[70vh] object-cover">
+  <img src="img/DSC05585.JPG" class="w-full h-[120vh] object-cover">
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
   <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white"></div>
   <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-transparent"></div>
   <div class="absolute inset-0 flex flex-col items-center justify-start pt-10 text-center">
-      <h1 class="hero-text">Quang Anh & Như Quỳnh</h1>
+      <h1 class="hero-text">Đoàn Quang & Như Quỳnh</h1>
   </div>
 
   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-gray-800 invite-container">
@@ -47,24 +48,49 @@
 
   <!-- MỜI KHÁCH -->
   <section class="max-w-3xl mx-auto px-4 text-center mt-10">
-    <p>Trân trọng kính mời</p>
-    <p class="invite-name">Mời cả lò nhà nhóm</p>
-    <p class="text-gray-600 text-sm mt-2">Đến dự buổi tiệc chung vui cùng gia đình chúng tôi</p>
-  </section>
+  <p class="text-gray-500 tracking-widest uppercase text-sm">
+    Trân trọng kính mời
+  </p>
+
+  <p class="invite-name text-2xl font-semibold mt-2">
+    Mời cả lò nhà nhóm
+  </p>
+
+  <p class="text-gray-600 text-sm mt-3">
+    Đến dự buổi tiệc chung vui cùng gia đình chúng tôi
+  </p>
+</section>
 
   <!-- THÔNG GIA -->
-  <section class="mt-16 max-w-3xl mx-auto px-4 flex justify-between reveal-container">
+ <section class="mt-16 max-w-3xl mx-auto px-4 reveal-container">
+
+  <!-- Ảnh chén nằm trên -->
+  <div class="flex justify-center mb-4">
+    <img  id="henImg" src="img/hén (1).png" class="w-14 h-14 object-contain">
+  </div>
+
+  <!-- 2 bên nhà trai - gái -->
+  <div class="flex">
+    
+    <!-- Nhà trai -->
     <div class="reveal-left w-1/2 text-center border-r border-gray-300 pr-4">
-      <p class="text-sm text-gray-500">NHÀ TRAI</p>
-      <p class="font-semibold text-black">Ông Nguyễn Văn A</p>
-      <p class="font-semibold text-black">Bà Trần Thị B</p>
+      <p class="text-sm text-gray-500 font-semibold mb-2">NHÀ TRAI</p>
+      <p class="text-black">Ông: Đoàn Văn Binh</p>
+      <p class="text-black">Bà: Trần Thị Thanh</p>
+      <p class="text-xs text-gray-500 mt-2">(số nhà 26-ngõ 15-Bảo Lộc-Phúc Thọ)</p>
     </div>
+
+    <!-- Nhà gái -->
     <div class="reveal-right w-1/2 text-center pl-4">
-      <p class="text-sm text-gray-500">NHÀ GÁI</p>
-      <p class="font-semibold text-black">Ông Lê Văn C</p>
-      <p class="font-semibold text-black">Bà Phạm Thị D</p>
+      <p class="text-sm text-gray-500 font-semibold mb-2">NHÀ GÁI</p>
+      <p class="text-black">Ông: Kiều Trí Thao</p>
+      <p class="text-black">Bà: Nguyễn Thị Vân</p>
+      <p class="text-xs text-gray-500 mt-2">(số nhà 96-ngõ 7-Thọ Lộc-Phúc Thọ)</p>
     </div>
-  </section>
+
+  </div>
+
+</section>
 
   <!-- LỜI BÁO -->
   <section class="mt-16 text-center reveal">
@@ -76,8 +102,8 @@
  <section class="mt-16 reveal text-center max-w-3xl mx-auto px-4">
   <div class="flex items-center justify-center gap-6 mb-6">
     <div>
-      <p>Chú rể</p>
-      <p class="text-xl font-semibold text-black groom-name">Quang Anh</p>
+      <p class="role-label mb-2">Chú rể</p>
+      <p class="text-xl font-semibold groom-name">Đoàn Quang</p>
     </div>
 
     <!-- Trái tim SVG lớn -->
@@ -87,8 +113,8 @@
 
 
     <div>
-      <p>Cô dâu</p>
-      <p class="text-xl font-semibold text-black bride-name">Như Quỳnh</p>
+      <p class="role-label mb-2">Cô dâu</p>
+      <p class="text-xl font-semibold bride-name">Như Quỳnh</p>
     </div>
   </div>
 
@@ -99,20 +125,30 @@
 </section>
 
   <!-- THƯ MỜI -->
-  <section class="mt-16 text-center relative">
+  <!-- <section class="mt-16 text-center relative">
     <h1 class="invite-hero">THƯ MỜI</h1>
-    <p class="invite-sub mt-4 text-lg">THAM DỰ LỄ CƯỚI NHƯ QUỲNH VÀ QUANG ANH</p>
-  </section>
+    <p class="invite-sub mt-4 text-lg">THAM DỰ LỄ CƯỚI</p>
+    <h1 class="title-main">Đoàn Quang</h1>
+  <h1 class="title-main">&</h1>
+  <h1 class="title-main">Như Quỳnh</h1>
+  </section> -->
+  <section class="mt-16 text-center relative">
+  <h1 class="invite-hero reveal">THƯ MỜI</h1>
+  <p class="invite-sub reveal mt-4 text-lg">THAM DỰ LỄ CƯỚI</p>
+  <h1 class="title-main reveal">Đoàn Quang</h1>
+  <h1 class="title-main reveal">&</h1>
+  <h1 class="title-main reveal">Như Quỳnh</h1>
+</section>
 
   <!-- KHÚC 2: Hình ảnh -->
-  <section class="mt-16 reveal max-w-3xl mx-auto px-4">
+ <section class="mt-16 reveal max-w-3xl mx-auto px-4">
   <div class="grid grid-cols-3 gap-4 items-end">
     <img src="img/DSC05403.JPG" 
-         class="h-[200px] w-full object-cover rounded-2xl brightness-95">
+         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-left">
     <img src="img/DSC05585.JPG" 
          class="h-[240px] w-full object-cover rounded-2xl scale-105 brightness-95">
     <img src="img/DSC05360.JPG" 
-         class="h-[200px] w-full object-cover rounded-2xl brightness-95">
+         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-right">
   </div>
 </section>
 
@@ -142,93 +178,90 @@
   </section>
 
   <section>
-  <h1 class="title-main">Quang Anh</h1>
-  <h1 class="title-main">&</h1>
-  <h1 class="title-main">Như Quỳnh</h1>
 
 <div class="max-w-md mx-auto mt-6 p-4 bg-white rounded-2xl shadow-lg">
   <div class="text-center mb-4">
-    <h2 class="text-2xl font-bold text-red-500">Tháng 04</h2>
+    <!-- <h2 class="text-2xl font-bold text-red-500">Tháng 04</h2>
     <p class="text-gray-500">Năm 2026</p>
+  </div> -->
+<!-- 
+  <div class="grid grid-cols-7 text-center text-sm font-semibold text-gray-500 mb-2">
+  <div>T2</div>
+  <div>T3</div>
+  <div>T4</div>
+  <div>T5</div>
+  <div>T6</div>
+  <div>T7</div>
+  <div>CN</div>
+</div> -->
+
+  <div class="max-w-md mx-auto mt-10 p-5 bg-white rounded-2xl shadow-lg">
+  
+  <div class="text-center mb-4">
+    <h2 id="calendar-month" class="text-2xl font-bold text-pink-400"></h2>
+    <p id="calendar-year" class="text-gray-500"></p>
   </div>
 
-  <div class="grid grid-cols-7 gap-2 text-center text-sm font-semibold text-gray-600">
-    <div>CN</div>
-    <div>T2</div>
-    <div>T3</div>
-    <div>T4</div>
-    <div>T5</div>
-    <div>T6</div>
-    <div>T7</div>
+  <!-- Thứ -->
+  <div class="grid grid-cols-7 text-center text-sm font-semibold text-gray-500 mb-2">
+    <div>T2</div><div>T3</div>
+    <div>T4</div><div>T5</div><div>T6</div><div>T7</div><div>CN</div>
   </div>
 
-  <div class="grid grid-cols-7 gap-2 mt-2">
-    <!-- Empty cells trước ngày 1 -->
-    <div></div><div></div><div></div><div></div><div></div>
-    
+  <!-- Ngày -->
+  <div id="calendar-days" class="grid grid-cols-7 gap-2"></div>
 
-    <!-- Ngày -->
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition relative">1</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">2</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">3</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">4</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">5</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">6</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">7</div>
-
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">8</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">9</div>
-    <!-- Ngày có sự kiện -->
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">
-      10
-      
-    </div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">11</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">12</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">13</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">14</div>
-
-    <div class="day p-2 rounded-lg border border-red-400 bg-red-100 font-bold relative">15 
-      <span class="absolute top-1 right-1 text-red-500 text-sm">❤️</span>
-    </div>
-    <div class="day p-2 rounded-lg border border-red-400 bg-red-100 font-bold relative">16
-      <span class="absolute top-1 right-1 text-red-500 text-sm">❤️</span>
-    </div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">17</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">
-      18
-    </div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">19</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">20</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">21</div>
-
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">22</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">23</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">24</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">25</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">26</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">27</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">28</div>
-
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">29</div>
-    <div class="day p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition">30</div>
-  </div>
+</div>
 </div>
 
   </section>
 <!-- ALBUM ẢNH CƯỚI -->
-<section class="mt-20 max-w-5xl mx-auto px-4 wedding-album reveal">
-  <h2 class="text-3xl font-semibold text-center mb-8 text-pink-400">Album Ảnh Cưới</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="album-item reveal-left"><img src="img/DSC05360.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-right"><img src="img/DSC05403.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-left"><img src="img/DSC05585.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-right"><img src="img/DSC05601.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-left"><img src="img/DSC05605.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-right"><img src="img/DSC05605.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-left"><img src="img/DSC05659.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
-    <div class="album-item reveal-right"><img src="img/DSC06894.JPG" class="rounded-2xl w-full h-48 object-cover"></div>
+<section class="film-album">
+
+  <div class="film-text">
+    <span>MY LOVE</span>
+    <span>FOREVER</span>
   </div>
+
+  <div class="film-frame">
+
+    <div class="film-photo">
+      <img src="img/DSC05585.JPG" />
+      <p>I love three things in this world</p>
+    </div>
+
+    <div class="film-photo">
+      <img src="img/DSC05403.JPG" />
+      <p>Sun, moon and you</p>
+    </div>
+
+    <div class="film-photo">
+      <img src="img/DSC05659.JPG" />
+      <p>And you forever</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="love-message-wrapper max-w-5xl mx-auto mt-16 rounded-2xl overflow-hidden shadow-lg">
+
+  <!-- ẢNH -->
+  <div class="love-photo">
+    <img src="img/DSC05601.JPG" class="w-full h-[70vh] object-cover rounded-t-2xl">
+  </div>
+
+  <!-- NỀN ĐỎ + NỘI DUNG -->
+  <div class="love-text-bg bg-pink-600 text-white px-8 py-12 text-center">
+    <h2 class="love-title text-4xl md:text-5xl font-cursive mb-4">
+      Our Love Story
+    </h2>
+    <p class="love-text text-lg md:text-xl leading-relaxed">
+      “Giữa hàng triệu người trên thế giới,<br>
+      chúng ta đã tìm thấy nhau…<br>
+      và chọn ở lại bên nhau suốt đời.”
+    </p>
+  </div>
+
 </section>
   <!-- GOOGLE MAP -->
   <section class="mt-10 text-center reveal max-w-3xl mx-auto px-4">
