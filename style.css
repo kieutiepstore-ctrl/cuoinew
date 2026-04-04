@@ -24,21 +24,7 @@ body {
   opacity: 1;
   animation: zoomIn 2s ease-out forwards;
 }
-
-/* Reveal Animation */
-/* .reveal { opacity: 0; transform: translateY(60px); transition: 2s; }
-.show { opacity: 1; transform: translateY(0); } */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+ 
 .title-main {
   opacity: 0;
   transform: scale(0.5);
@@ -552,3 +538,13 @@ button:hover { opacity: 0.85; }
 .reveal.show { opacity: 1; }
 .reveal-left { transform: translateX(-80px); }
 .reveal-right { transform: translateX(80px); }
+.reveal {
+  opacity: 0;
+  transform: translateY(40px); /* bắt đầu ở dưới */
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0); /* trượt lên vị trí ban đầu */
+}

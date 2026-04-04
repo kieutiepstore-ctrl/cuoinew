@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thiệp cưới - Phiên bản trắng sang trọng</title>
+<title>Thiệp cưới</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@300;400;700&display=swap" rel="stylesheet">
@@ -38,12 +38,12 @@
   </div>
 
   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-gray-800 invite-container">
-    <h1 class="invite-title">Thư tiệc mời cưới</h1>
-    <div class="divider divider-top"></div>
-    <p class="invite-time">18:00 Thứ Tư</p>
-    <p class="invite-date">14/04/2026</p>
-    <div class="divider divider-bottom"></div>
-  </div>
+  <h1 class="invite-title reveal">Thư tiệc mời cưới</h1>
+  <div class="divider divider-top reveal-left"></div>
+  <p class="invite-time reveal-bottom">18:00 Thứ Tư</p>
+  <p class="invite-date reveal-bottom">14/04/2026</p>
+  <div class="divider divider-bottom reveal-right"></div>
+</div>
 </section>
 
   <!-- MỜI KHÁCH -->
@@ -119,8 +119,8 @@
   </div>
 
   <div class="grid grid-cols-2 gap-4">
-    <img src="img/DSC05659.JPG" class="h-[340px] w-full object-cover rounded-2xl brightness-95">
-    <img src="img/DSC05605.JPG" class="h-[340px] w-full object-cover rounded-2xl brightness-95">
+    <img src="img/DSC05659.JPG" class="reveal-left h-[340px] w-full object-cover rounded-2xl brightness-95">
+    <img src="img/DSC05605.JPG" class="reveal-right h-[340px] w-full object-cover rounded-2xl brightness-95">
   </div>
 </section>
 
@@ -132,7 +132,7 @@
   <h1 class="title-main">&</h1>
   <h1 class="title-main">Như Quỳnh</h1>
   </section> -->
-  <section class="mt-16 text-center relative">
+ <section class="mt-16 text-center relative">
   <h1 class="invite-hero reveal">THƯ MỜI</h1>
   <p class="invite-sub reveal mt-4 text-lg">THAM DỰ LỄ CƯỚI</p>
   <h1 class="title-main reveal">Đoàn Quang</h1>
@@ -153,29 +153,35 @@
 </section>
 
   <!-- KHÚC 3: NGÀY GIỜ -->
-  <section class="mt-20 text-center reveal max-w-3xl mx-auto px-4">
-    <h1 class="text-2xl font-bold text-pink-400 text-center mt-4 mb-4">
-  LỄ THÀNH HÔN
-</h1>
-    <div class="flex items-center justify-center text-center gap-6">
-      <div class="flex flex-col items-center">
-        <p class="text-sm text-gray-500">Giờ</p>
-        <p class="text-lg font-semibold text-black">14:00</p>
-      </div>
-      <div class="w-px h-16 bg-gray-300"></div>
-      <div class="flex flex-col items-center">
-        <p class="text-sm text-gray-500">Chủ Nhật</p>
-        <p class="text-4xl font-bold text-black">14</p>
-        <p class="text-sm text-gray-500">Tháng 3</p>
-      </div>
-      <div class="w-px h-16 bg-gray-300"></div>
-      <div class="flex flex-col items-center">
-        <p class="text-sm text-gray-500">Năm</p>
-        <p class="text-lg font-semibold text-black">2026</p>
-      </div>
+ <section class="mt-20 text-center reveal max-w-3xl mx-auto px-4">
+  <h1 class="text-2xl font-bold text-pink-400 text-center mt-4 mb-4 reveal">
+    LỄ THÀNH HÔN
+  </h1>
+
+  <div class="flex items-center justify-center text-center gap-6">
+    <div class="flex flex-col items-center reveal-left">
+      <p class="text-sm text-gray-500">Giờ</p>
+      <p class="text-lg font-semibold text-black">14:00</p>
     </div>
-    <p class="mt-2"><i>(tức ngày 25/10 năm ất tỵ)</i></p>
-  </section>
+
+    <div class="w-px h-16 bg-gray-300"></div>
+
+    <div class="flex flex-col items-center reveal">
+      <p class="text-sm text-gray-500">Chủ Nhật</p>
+      <p class="text-4xl font-bold text-black">14</p>
+      <p class="text-sm text-gray-500">Tháng 3</p>
+    </div>
+
+    <div class="w-px h-16 bg-gray-300"></div>
+
+    <div class="flex flex-col items-center reveal-right">
+      <p class="text-sm text-gray-500">Năm</p>
+      <p class="text-lg font-semibold text-black">2026</p>
+    </div>
+  </div>
+
+  <p class="mt-2 reveal"><i>(tức ngày 25/10 năm ất tỵ)</i></p>
+</section>
 
   <section>
 

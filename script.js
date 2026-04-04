@@ -12,85 +12,57 @@ function openCard() {
     openScreen.style.display = "none";
     card.classList.remove("hidden");
 
-    // Hero text
+    // Hero text (nếu muốn vẫn hiện khi mở thiệp)
     const hero = document.querySelector('.hero-text');
-    hero.classList.add('show');
-
-    // Thư mời hero + phụ
-    setTimeout(() => document.querySelector('.invite-hero').classList.add('show'), 1500);
-    setTimeout(() => document.querySelector('.invite-sub').classList.add('show'), 2500);
-
-    // Thư tiệc mời + divider + giờ + ngày
-    const inviteTitle = document.querySelector('.invite-title');
-    const inviteTime = document.querySelector('.invite-time');
-    const inviteDate = document.querySelector('.invite-date');
-    const dividerTop = document.querySelector('.divider-top');
-    const dividerBottom = document.querySelector('.divider-bottom');
-
-    setTimeout(() => {
-      dividerTop.classList.add('show');
-      inviteTitle.classList.add('show');
-      setTimeout(() => inviteTime.classList.add('show'), 400);
-      setTimeout(() => dividerBottom.classList.add('show'), 500);
-      setTimeout(() => inviteDate.classList.add('show'), 800);
-    }, 200);
-
-    // Tiêu đề chính
-    const titles = document.querySelectorAll('.title-main');
-    titles.forEach((title, i) => {
-      setTimeout(() => title.classList.add('show'), i * 1000);
-    });
+    if(hero) hero.classList.add('show');
 
     // Calendar
     renderCalendarVN({ days: [15,16], month: 3, year: 2026 });
 
     // Hình ảnh hen
     const henImg = document.getElementById('henImg');
-    setTimeout(() => henImg.classList.add('show'), 500);
+    if(henImg) setTimeout(() => henImg.classList.add('show'), 500);
 
     // Tim bay
     startHearts();
+
+    // **Không tự động reveal các invite/title**
+    // Scroll reveal sẽ thực hiện khi vuốt đến
+    initScrollReveal();
 
   }, 900);
 }
 
 // ===================== SCROLL REVEAL =====================
-// Chia riêng cho trái / phải / normal
-const revealLeftElements = document.querySelectorAll('.reveal-left');
-const revealRightElements = document.querySelectorAll('.reveal-right');
-const revealNormalElements = document.querySelectorAll('.reveal');
-
-const observerLeft = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show'); // slide từ trái
-      observerLeft.unobserve(entry.target);
-    }
+function initScrollReveal() {
+  const revealTop = document.querySelectorAll('.reveal-top');       // từ trên xuống
+  const revealBottom = document.querySelectorAll('.reveal-bottom'); // từ dưới lên
+  const revealLeft = document.querySelectorAll('.reveal-left');     // từ trái
+  const revealRight = document.querySelectorAll('.reveal-right');   // từ phải
+  const revealNormal = document.querySelectorAll('.reveal');        // fade-in
+const inviteTitle = document.querySelectorAll('.invite-title');
+  const createObserver = (elements) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.3,                  // 👈 phải thấy 30% mới chạy
+    rootMargin: "0px 0px -80px 0px"  // 👈 kéo xuống sâu hơn mới trigger
   });
-}, { threshold: 0.15 });
 
-const observerRight = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show'); // slide từ phải
-      observerRight.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
+  elements.forEach(el => observer.observe(el));
+};
 
-const observerNormal = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show'); // fade-in bình thường
-      observerNormal.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-// Gắn observer
-revealLeftElements.forEach(el => observerLeft.observe(el));
-revealRightElements.forEach(el => observerRight.observe(el));
-revealNormalElements.forEach(el => observerNormal.observe(el));
+  createObserver(revealTop);
+  createObserver(revealBottom);
+  createObserver(revealLeft);
+  createObserver(revealRight);
+  createObserver(revealNormal);
+}
 
 // ===================== TIM BAY QUA LẠI =====================
 function startHearts() {
@@ -157,10 +129,8 @@ function renderCalendarVN({ days, month, year }) {
   const yearEl = document.getElementById("calendar-year");
 
   container.innerHTML = "";
-  const today = new Date();
   let firstDay = new Date(year, month, 1).getDay();
   firstDay = (firstDay+6)%7; // VN: T2=0
-
   const totalDays = new Date(year, month+1, 0).getDate();
   const months = ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"];
   monthEl.innerText = months[month];
@@ -177,7 +147,7 @@ function renderCalendarVN({ days, month, year }) {
       relative flex items-center justify-center
       h-12 rounded-xl cursor-pointer
       bg-white border text-sm font-semibold
-      hover:scale-105 transition
+      hover:scale-105 transition duration-700
     `;
     div.innerText = d;
     if(days.includes(d)){
@@ -187,3 +157,4 @@ function renderCalendarVN({ days, month, year }) {
     container.appendChild(div);
   }
 }
+
