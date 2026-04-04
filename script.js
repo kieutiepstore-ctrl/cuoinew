@@ -123,6 +123,41 @@ function drawHeart() {
 drawHeart();
 
 // ===================== CALENDAR =====================
+// function renderCalendarVN({ days, month, year }) {
+//   const container = document.getElementById("calendar-days");
+//   const monthEl = document.getElementById("calendar-month");
+//   const yearEl = document.getElementById("calendar-year");
+
+//   container.innerHTML = "";
+//   let firstDay = new Date(year, month, 1).getDay();
+//   firstDay = (firstDay+6)%7; // VN: T2=0
+//   const totalDays = new Date(year, month+1, 0).getDate();
+//   const months = ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"];
+//   monthEl.innerText = months[month];
+//   yearEl.innerText = `Năm ${year}`;
+
+//   for(let i=0;i<firstDay;i++){
+//     const empty = document.createElement("div");
+//     container.appendChild(empty);
+//   }
+
+//   for(let d=1; d<=totalDays; d++){
+//     const div = document.createElement("div");
+//     div.className = `
+//       relative flex items-center justify-center
+//       h-12 rounded-xl cursor-pointer
+//       bg-white border text-sm font-semibold
+//       hover:scale-105 transition duration-700
+//     `;
+//     div.innerText = d;
+//     if(days.includes(d)){
+//       div.classList.add("bg-pink-200","border-pink-400");
+//       div.innerHTML = `${d}<span class="absolute top-1 right-1 text-red-500 text-xs">❤️</span>`;
+//     }
+//     container.appendChild(div);
+//   }
+// }
+
 function renderCalendarVN({ days, month, year }) {
   const container = document.getElementById("calendar-days");
   const monthEl = document.getElementById("calendar-month");
@@ -130,31 +165,63 @@ function renderCalendarVN({ days, month, year }) {
 
   container.innerHTML = "";
   let firstDay = new Date(year, month, 1).getDay();
-  firstDay = (firstDay+6)%7; // VN: T2=0
-  const totalDays = new Date(year, month+1, 0).getDate();
-  const months = ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"];
+  firstDay = (firstDay + 6) % 7; // VN: T2 = 0
+  const totalDays = new Date(year, month + 1, 0).getDate();
+  const months = ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6",
+                  "Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"];
   monthEl.innerText = months[month];
   yearEl.innerText = `Năm ${year}`;
 
-  for(let i=0;i<firstDay;i++){
+  // Tạo ô trống đầu tháng
+  for(let i = 0; i < firstDay; i++){
     const empty = document.createElement("div");
     container.appendChild(empty);
   }
 
-  for(let d=1; d<=totalDays; d++){
+  // Tạo các ô ngày
+  for(let d = 1; d <= totalDays; d++){
     const div = document.createElement("div");
     div.className = `
+      day reveal
       relative flex items-center justify-center
       h-12 rounded-xl cursor-pointer
       bg-white border text-sm font-semibold
       hover:scale-105 transition duration-700
     `;
     div.innerText = d;
+
     if(days.includes(d)){
       div.classList.add("bg-pink-200","border-pink-400");
       div.innerHTML = `${d}<span class="absolute top-1 right-1 text-red-500 text-xs">❤️</span>`;
     }
+
+    // Thêm delay reveal theo thứ tự
+    div.style.setProperty('--delay', `${d * 0.05}s`);
+
     container.appendChild(div);
   }
-}
 
+  // ===================== REVEAL + TRÁI TIM =====================
+  const dayEls = container.querySelectorAll('.day');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        el.classList.add('show');
+
+        // Nếu là ngày có ❤️, tạo thêm trái tim bay
+        if(el.querySelector('span')){
+          const heart = document.createElement('span');
+          heart.classList.add('day-heart');
+          heart.textContent = '❤️';
+          el.appendChild(heart);
+          setTimeout(() => heart.remove(), 1000);
+        }
+
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3, rootMargin: "0px 0px -40px 0px" });
+
+  dayEls.forEach(el => observer.observe(el));
+}

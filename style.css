@@ -24,17 +24,7 @@ body {
   opacity: 1;
   animation: zoomIn 2s ease-out forwards;
 }
- 
-.title-main {
-  opacity: 0;
-  transform: scale(0.5);
-  transition: transform 1s ease, opacity 1s ease;
-}
 
-.title-main.show {
-  opacity: 1;
-  transform: scale(1);
-}
 /* Door Animation */
 .door { transition: 2s; }
 .open-left { transform: translateX(-100%); }
@@ -138,13 +128,13 @@ button:hover { opacity: 0.85; }
   75%  { transform: translateX(20px) translateY(60vh) rotate(-15deg); }
   100% { transform: translateX(0) translateY(80vh) rotate(0deg); opacity: 0; }
 }
-.title-main {
+/* .title-main {
   font-family: 'Great Vibes', cursive;
   font-size: 2rem;
   text-align: center;
   margin-bottom: 0.2rem;
   color: #d98880;
-}
+} */
 .subtitle {
   text-align: center;
   font-size: 1.5rem;
@@ -547,4 +537,78 @@ button:hover { opacity: 0.85; }
 .reveal.show {
   opacity: 1;
   transform: translateY(0); /* trượt lên vị trí ban đầu */
+}
+.day.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition-delay: var(--delay, 0s);
+  position: relative;
+  overflow: visible; /* để trái tim không bị cắt */
+}
+
+.day.reveal.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Trái tim bay lên */
+.day .day-heart {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(0) scale(0.8);
+  font-size: 0.8rem;
+  color: #ff4d6d;
+  opacity: 0;
+  pointer-events: none;
+  animation: flyHeart 1s forwards;
+}
+
+@keyframes flyHeart {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(0.8) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-10px) scale(1) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-25px) scale(1.1) rotate(10deg);
+  }
+  75% {
+    transform: translateX(-50%) translateY(-40px) scale(1) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-60px) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+}
+.film-photo.reveal-bottom {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.film-photo.reveal-bottom.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.film-text {
+  display: flex;
+  flex-direction: column; /* chữ trên, sticker dưới */
+  align-items: center;    /* căn giữa theo chiều ngang */
+  gap: 10px;              /* khoảng cách giữa chữ và sticker */
+}
+
+.sticker-below {
+  width: 100px;
+  transform: rotate(180deg); /* xoay đúng chiều */
+  animation: floatSticker 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatSticker {
+  0%   { transform: rotate(180deg) translateY(0px); }
+  50%  { transform: rotate(180deg) translateY(-10px); }
+  100% { transform: rotate(180deg) translateY(0px); }
 }
