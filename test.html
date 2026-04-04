@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giấy thư có ghim</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lora&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+body{
+  background:#f2f2f2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+}
+
+/* ===== WRAPPER ===== */
+.paper-stack{
+  position:relative;
+  width:340px;
+}
+
+/* ===== GHIM ===== */
+.pin{
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%) rotate(-8deg);
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  z-index:10;
+
+  background: radial-gradient(circle at 30% 30%, #ff7b7b, #a80000);
+
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.3),
+    inset 0 3px 5px rgba(255,255,255,0.5);
+}
+
+/* kim ghim */
+.pin::after{
+  content:"";
+  position:absolute;
+  top:20px;
+  left:50%;
+  width:2px;
+  height:20px;
+  background:#888;
+  transform:translateX(-50%);
+  border-radius:2px;
+}
+
+/* ===== GIẤY ===== */
+.paper{
+  position:absolute;
+  width:100%;
+  padding:30px 25px;
+
+  background:
+    url("https://www.transparenttextures.com/patterns/paper-fibers.png"),
+    linear-gradient(#fdf7ed,#f3e6d0);
+
+  background-blend-mode:multiply;
+  border-radius:8px;
+
+  box-shadow:
+    0 6px 15px rgba(0,0,0,0.12),
+    0 25px 50px rgba(0,0,0,0.18),
+    inset 0 0 40px rgba(0,0,0,0.08);
+}
+
+/* ===== TỜ DƯỚI ===== */
+.paper-back{
+  height:100%;
+  transform:rotate(-6deg);
+  top:20px;
+  left:-10px;
+  opacity:0.9;
+}
+
+/* ===== TỜ TRÊN ===== */
+.paper-front{
+  position:relative;
+  transform:rotate(2deg);
+  z-index:2;
+  border:1px solid rgba(0,0,0,0.2);
+}
+
+/* ===== LỖ GÁY ===== */
+.paper-front::before{
+  content:"";
+  position:absolute;
+  left:-14px;
+  top:0;
+  height:100%;
+  width:14px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 12px,
+      #fff 12px,
+      #fff 18px
+    );
+}
+
+/* ===== TEXT ===== */
+.paper-front h2{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  margin-bottom:12px;
+  letter-spacing:1px;
+}
+
+.paper-front p{
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #3b2f2f;
+}
+
+/* hover nhẹ */
+.paper-front:hover{
+  transform:rotate(1deg) scale(1.03);
+  transition:0.3s;
+}
+</style>
+</head>
+
+<body>
+
+<div class="paper-stack">
+
+  <!-- GHIM -->
+  <div class="pin"></div>
+
+  <!-- TỜ DƯỚI -->
+  <div class="paper paper-back"></div>
+
+  <!-- TỜ TRÊN -->
+  <div class="paper paper-front">
+    <h2>OUR LOVE STORY</h2>
+
+    <p>
+      Thật may mắn và hạnh phúc khi chúng mình tìm thấy nhau giữa muôn vàn gặp gỡ.<br>
+
+      Duyên trời đã gắn kết chúng mình trở thành một nửa còn thiếu của nhau, cùng nhau trải qua những khoảnh khắc vui buồn.
+
+      Và ngày cuối cùng chúng mình đã đến — bước ngoặt minh chứng cho tình yêu vĩnh cửu.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -442,8 +442,9 @@ button:hover { opacity: 0.85; }
 
 .film-photo img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 180px; /* giảm chiều cao */
+  object-fit: contain;
+  background: #ffffff; /* nền đen giống film */
 }
 
 .film-photo p {
@@ -738,4 +739,46 @@ button:hover { opacity: 0.85; }
 /* chung */
 .countdown-box .box {
   transition: all 0.8s ease;
+}
+/* ===== THANK YOU ===== */
+.thankyou-title{
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: 1s;
+}
+
+.thankyou-title.show{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.thankyou-text{
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+
+.thankyou-text.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.thankyou-sub{
+  font-size: 0.9rem;
+  color: #eee;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+
+.thankyou-sub.show{
+  opacity: 1;
+  transform: translateY(0);
 }
