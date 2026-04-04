@@ -375,8 +375,8 @@ button:hover { opacity: 0.85; }
   text-align: center;
   margin-bottom: 0.2rem;
   color: #d98880;
-  opacity: 0;
-  transform: scale(0.5);
+  /* opacity: 0; */
+  /* transform: scale(0.5); */
 }
 
 @keyframes zoomTitle {
@@ -611,4 +611,131 @@ button:hover { opacity: 0.85; }
   0%   { transform: rotate(180deg) translateY(0px); }
   50%  { transform: rotate(180deg) translateY(-10px); }
   100% { transform: rotate(180deg) translateY(0px); }
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@600&display=swap');
+
+.countdown-compact {
+  text-align: center;
+  padding: 40px 10px;
+  background: linear-gradient(135deg, #fef9f4, #fffdfb);
+  font-family: 'Poppins', sans-serif;
+}
+
+.cd-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; /* nhỏ hơn */
+  color: #b89b5e;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cd-line {
+  width: 70px;
+  height: 2px;
+  background: #b89b5e;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+}
+
+.cd-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ô gần nhau */
+  flex-wrap: nowrap; /* nằm cùng hàng */
+}
+
+/* Mỗi ô box nhỏ gọn */
+.box {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  padding: 15px 20px; /* nhỏ hơn */
+  min-width: 70px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.box span {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px; /* nhỏ hơn */
+  font-weight: 700;
+  color: #3b3b3b;
+  transition: transform 0.3s ease;
+}
+
+/* Flip animation */
+.box span.change {
+  animation: flip 0.5s ease forwards;
+}
+
+@keyframes flip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(90deg); color: #b89b5e; }
+  100% { transform: rotateX(0deg); }
+}
+
+.box small {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px; /* nhỏ hơn */
+  color: #555;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+/* LEFT */
+.cd-left {
+  transform: translateX(-80px);
+  opacity: 0;
+}
+.cd-left.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* RIGHT */
+.cd-right {
+  transform: translateX(80px);
+  opacity: 0;
+}
+.cd-right.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* TOP */
+.cd-top {
+  transform: translateY(-80px);
+  opacity: 0;
+}
+.cd-top.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* BOTTOM */
+.cd-bottom {
+  transform: translateY(80px);
+  opacity: 0;
+}
+.cd-bottom.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* chung */
+.countdown-box .box {
+  transition: all 0.8s ease;
 }

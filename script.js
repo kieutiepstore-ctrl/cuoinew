@@ -39,7 +39,9 @@ function initScrollReveal() {
   const revealBottom = document.querySelectorAll('.reveal-bottom'); // từ dưới lên
   const revealLeft = document.querySelectorAll('.reveal-left');     // từ trái
   const revealRight = document.querySelectorAll('.reveal-right');   // từ phải
-  const revealNormal = document.querySelectorAll('.reveal');        // fade-in
+  const revealNormal = document.querySelectorAll(
+  '.reveal, .cd-left, .cd-right, .cd-top, .cd-bottom'
+);
 const inviteTitle = document.querySelectorAll('.invite-title');
   const createObserver = (elements) => {
   const observer = new IntersectionObserver(entries => {
@@ -225,3 +227,26 @@ function renderCalendarVN({ days, month, year }) {
 
   dayEls.forEach(el => observer.observe(el));
 }
+// đếm ngược ngày cưới
+ const wedding = new Date("2026-04-15T10:30:00").getTime();
+
+  function runCountdown() {
+    const now = new Date().getTime();
+    const diff = wedding - now;
+
+    if (diff < 0) return;
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("d").innerText = d;
+    document.getElementById("h").innerText = h;
+    document.getElementById("m").innerText = m;
+    document.getElementById("s").innerText = s;
+  }
+
+  setInterval(runCountdown, 1000);
+  runCountdown();
+  
