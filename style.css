@@ -847,3 +847,7 @@ button:hover { opacity: 0.85; }
   opacity: 1;
   border: 2px solid #ff4d6d;
 }
+html, body {
+  overflow-x: hidden;  /* ngăn cuộn ngang */
+  touch-action: pan-y; /* cho phép cuộn dọc trên mobile, chặn ngang */
+}
