@@ -36,12 +36,12 @@
   </div>
 
   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-gray-800 invite-container">
-  <h1 class="invite-title reveal">Thư tiệc mời cưới</h1>
-  <div class="divider divider-top reveal-left"></div>
-  <p class="invite-time reveal-bottom">18:00 Thứ Tư</p>
-  <p class="invite-date reveal-bottom">14/04/2026</p>
-  <div class="divider divider-bottom reveal-right"></div>
-</div>
+    <h1 class="invite-title reveal">Thư tiệc mời cưới</h1>
+    <div class="divider divider-top reveal-left"></div>
+    <p class="invite-time reveal-bottom">18:00 Thứ Tư</p>
+    <p class="invite-date reveal-bottom">14/04/2026</p>
+    <div class="divider divider-bottom reveal-right"></div>
+  </div>
 </section>
 
   <!-- MỜI KHÁCH -->
@@ -50,18 +50,16 @@
     Trân trọng kính mời
   </p>
 
-  <p class="invite-name text-2xl font-semibold mt-2">
-    Mời cả lò nhà nhóm
+  <p class="invite-name text-2xl font-semibold mt-2" id="guestName">
+    
   </p>
 
   <p class="text-gray-600 text-sm mt-3">
     Đến dự buổi tiệc chung vui cùng gia đình chúng tôi
   </p>
 </section>
-
   <!-- THÔNG GIA -->
  <section class="mt-16 max-w-3xl mx-auto px-4 reveal-container">
-
   <!-- Ảnh chén nằm trên -->
   <div class="flex justify-center mb-4">
     <img  id="henImg" src="img/hén (1).png" class="w-14 h-14 object-contain">
@@ -89,7 +87,6 @@
   </div>
 
 </section>
-
   <!-- LỜI BÁO -->
   <section class="mt-16 text-center reveal">
     <p class="tracking-[6px] text-gray-400 text-xs">TRÂN TRỌNG BÁO TIN</p>
@@ -117,8 +114,8 @@
   </div>
 
   <div class="grid grid-cols-2 gap-4">
-    <img src="img/DSC05659.JPG" class="reveal-left h-[340px] w-full object-cover rounded-2xl brightness-95">
-    <img src="img/DSC06887.JPG" class="reveal-right h-[340px] w-full object-cover rounded-2xl brightness-95">
+    <img src="img/DSC05659.JPG" class="reveal-left h-[340px] w-full object-cover rounded-2xl brightness-95" loading="lazy">
+    <img src="img/DSC06887.JPG" class="reveal-right h-[340px] w-full object-cover rounded-2xl brightness-95" loading="lazy">
   </div>
 </section>
 
@@ -135,11 +132,11 @@
  <section class="mt-16 reveal max-w-3xl mx-auto px-4">
   <div class="grid grid-cols-3 gap-4 items-end">
     <img src="img/DSC06486.JPG" 
-         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-left">
+         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-left" loading="lazy">
     <img src="img/DSC05585.JPG" 
-         class="h-[240px] w-full object-cover rounded-2xl scale-105 brightness-95">
+         class="h-[240px] w-full object-cover rounded-2xl scale-105 brightness-95" loading="lazy">
     <img src="img/DSC05360.JPG" 
-         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-right">
+         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-right" loading="lazy">
   </div>
 </section>
 
@@ -216,20 +213,60 @@
 
   <div class="film-frame reveal-right">
     <div class="film-photo reveal-bottom">
-      <img src="img/DSC06486.JPG" />
+      <img src="img/DSC06486.JPG" loading="lazy" />
       <p>I love three things in this world</p>
     </div>
 
     <div class="film-photo reveal-bottom">
-      <img src="img/DSC06480.JPG" />
+      <img src="img/DSC06480.JPG" loading="lazy" />
       <p>Sun, moon and you</p>
     </div>
 
     <div class="film-photo reveal-bottom">
-      <img src="img/DSC06410.JPG" />
+      <img src="img/DSC06410.JPG" loading="lazy" />
       <p>And you forever</p>
     </div>
   </div>
+</section>
+<section class="wedding-slideshow mt-16 max-w-4xl mx-auto px-4">
+
+  <!-- ẢNH LỚN -->
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="img/DSC07037.JPG" loading="lazy">
+      <img src="img/DSC06140.JPG"loading="lazy">
+      <img src="img/DSC06088.JPG"loading="lazy">
+      <img src="img/DSC06058.JPG"loading="lazy">
+      <img src="img/DSC05823.JPG"loading="lazy">
+      <img src="img/DSC05777.JPG"loading="lazy">
+      <img src="img/DSC05638.JPG"loading="lazy">
+      <img src="img/DSC06480.JPG"loading="lazy">
+      <img src="img/DSC06410.JPG"loading="lazy">
+      <img src="img/DSC06486.JPG"loading="lazy">
+      <img src="img/DSC06480.JPG"loading="lazy">
+      <img src="img/DSC06410.JPG"loading="lazy">
+    </div>
+
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+
+  <!-- ẢNH NHỎ -->
+  <div class="thumbnails" id="thumbs">
+    <img src="img/DSC07037.JPG" class="active" loading="lazy">
+    <img src="img/DSC06140.JPG"loading="lazy">
+    <img src="img/DSC06088.JPG"loading="lazy">
+    <img src="img/DSC06058.JPG" class="active"loading="lazy">
+    <img src="img/DSC05823.JPG"loading="lazy">
+    <img src="img/DSC05777.JPG"loading="lazy">
+    <img src="img/DSC05638.JPG" class="active"loading="lazy">
+    <img src="img/DSC06480.JPG"loading="lazy">
+    <img src="img/DSC06410.JPG"loading="lazy">
+    <img src="img/DSC06486.JPG" class="active"loading="lazy">
+    <img src="img/DSC06480.JPG"loading="lazy">
+    <img src="img/DSC06410.JPG"loading="lazy">
+  </div>
+
 </section>
 <section class="love-message-wrapper max-w-5xl mx-auto mt-16 rounded-2xl overflow-hidden shadow-lg">
 
@@ -252,20 +289,6 @@
 
 </section>
   <!-- GOOGLE MAP -->
-  <!-- <section class="mt-10 text-center reveal max-w-3xl mx-auto px-4">
-    <h3 class="text-lg font-semibold text-black mb-4">Địa điểm tiệc cưới</h3>
-    <div class="w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.050640387066!2d105.8170095!3d21.0285119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab2d4f8e3f5b%3A0x3f5f1234567890ab!2sHanoi%2C%20Vietnam!5e0!3m2!1sen!2sus!4v1695730000000!5m2!1sen!2sus" 
-        width="100%" 
-        height="100%" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </section> -->
   <section class="mt-10 text-center reveal max-w-3xl mx-auto px-4">
   <h3 class="text-lg font-semibold text-black mb-4">Tại Tư Gia Nhà Gái</h3>
 
@@ -316,37 +339,28 @@
 </section>
 
 </div>
-
-<script src="script.js">
-
-</script>
 <!-- THANK YOU SECTION -->
 <section class="thankyou-section relative mt-20">
-
   <!-- ẢNH -->
   <img src="img/DSC05585.JPG" class="w-full h-[80vh] object-cover">
-
   <!-- LỚP MỜ -->
   <div class="absolute inset-0 bg-black/40"></div>
-
   <!-- NỘI DUNG -->
   <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-
     <h2 class="thankyou-title reveal">
       Thank You
     </h2>
-
     <p class="thankyou-text reveal mt-4">
       Cảm ơn bạn đã dành thời gian quý báu<br>
       đến chung vui cùng chúng tôi ❤️
     </p>
-
     <p class="thankyou-sub reveal mt-6">
       Sự hiện diện của bạn là niềm hạnh phúc lớn nhất của chúng tôi
     </p>
-
   </div>
-
 </section>
+<script src="script.js">
+
+</script>
 </body>
 </html>

@@ -249,4 +249,46 @@ function renderCalendarVN({ days, month, year }) {
 
   setInterval(runCountdown, 1000);
   runCountdown();
-  
+  const slides = document.getElementById("slides");
+const thumbs = document.querySelectorAll("#thumbs img");
+
+let index = 0;
+const total = thumbs.length;
+
+function updateSlide(){
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  thumbs.forEach(t => t.classList.remove("active"));
+  thumbs[index].classList.add("active");
+}
+
+// click thumbnail
+thumbs.forEach((thumb, i) => {
+  thumb.addEventListener("click", () => {
+    index = i;
+    updateSlide();
+  });
+});
+
+// nút
+document.querySelector(".next").onclick = () => {
+  index = (index + 1) % total;
+  updateSlide();
+};
+
+document.querySelector(".prev").onclick = () => {
+  index = (index - 1 + total) % total;
+  updateSlide();
+};
+
+// auto chạy
+setInterval(() => {
+  index = (index + 1) % total;
+  updateSlide();
+}, 4000);
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
+if (name) {
+  document.getElementById("guestName").innerText = name;
+}
