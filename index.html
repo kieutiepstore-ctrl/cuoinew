@@ -6,9 +6,10 @@
 <title>Thiệp cưới</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@300;400;700&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@300;400;700&display=swap" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 
@@ -359,8 +360,19 @@
     </p>
   </div>
 </section>
-<script src="script.js">
+<script src="script.js" defer>
 
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll("img");
+  images.forEach((img, index) => {
+    // Chỉ lazy load các ảnh không phải ảnh đầu tiên (hero)
+    if (index !== 0) {
+      img.setAttribute("loading", "lazy");
+    }
+  });
+});
 </script>
 </body>
 </html>
