@@ -6,18 +6,23 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  overflow-x: hidden;
+  touch-action: pan-y;
+}
+
 /* Titles */
 .title { font-family: 'Lora', serif; font-weight: 700; letter-spacing: 1px; }
 
-/* Hero text với hiệu ứng phóng to */
+/* Hero text */
 @keyframes zoomIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0%   { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
 }
-.hero-text { 
-  font-family: 'Great Vibes', cursive; 
-  font-size: 2.2rem;  
-  color: #111; 
+.hero-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: #111;
   opacity: 0;
 }
 .hero-text.show {
@@ -25,45 +30,142 @@ body {
   animation: zoomIn 2s ease-out forwards;
 }
 
-/* Door Animation */
-.door { transition: 2s; }
-.open-left { transform: translateX(-100%); }
-.open-right { transform: translateX(100%); }
-
-/* Invite Name Decoration */
-.invite-name { 
-  position: relative; 
-  display: inline-block; 
-  font-family: 'Lora', serif; 
-  font-weight: 700; 
-  font-size: 1.5rem; 
-  letter-spacing: 1px; 
-  color: #111; 
+/* Invite Name */
+.invite-name {
+  position: relative;
+  display: inline-block;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #111;
   margin: 12px 0;
 }
-.invite-name::before, .invite-name::after { content: ""; position: absolute; top: 50%; width: 50px; height: 2px; background-color: #111; }
+.invite-name::before,
+.invite-name::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 2px;
+  background-color: #111;
+}
 .invite-name::before { left: -60px; }
-.invite-name::after { right: -60px; }
+.invite-name::after  { right: -60px; }
 
-/* Input Styling */
-input, select, textarea { font-family: 'Lora', serif; border: 1px solid #ccc; border-radius: 6px; background-color: #fff; color: #111; padding: 12px; font-size: 1rem; margin-bottom: 12px; width: 100%; }
+/* Inputs */
+input, select, textarea {
+  font-family: 'Lora', serif;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #111;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  width: 100%;
+}
 
 /* Buttons */
-button { font-family: 'Great Vibes', cursive; font-weight: 400; cursor: pointer; transition: 0.3s; padding: 12px; border-radius: 6px; border: none; background-color: #d98880; color: #fff; }
+button {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #d98880;
+  color: #fff;
+}
 button:hover { opacity: 0.85; }
 
-/* Nhà trai - Nhà gái trượt */
+/* Reveal base */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  will-change: transform, opacity;
+}
+
+.reveal {
+  transform: translateY(40px);
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left  { transform: translateX(-80px); }
+.reveal-right { transform: translateX(80px);  }
+.reveal-left.show,
+.reveal-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .reveal-container { overflow: hidden; }
-.reveal-left, .reveal-right { opacity: 0; transform: translateX(0); transition: all 1s ease; }
-.reveal-left { transform: translateX(-100%); }
-.reveal-right { transform: translateX(100%); }
-.reveal-left.show, .reveal-right.show { opacity: 1; transform: translateX(0); }
 
-/* Thư mời */
+/* Invite container */
+.invite-container { position: relative; overflow: hidden; }
+
+.divider {
+  height: 2px;
+  background-color: #d98880;
+  width: 0;
+  margin: 8px auto;
+  transition: width 1s ease;
+}
+.divider.show { width: 150px; }
+
+.divider-top {
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  margin: 8px auto;
+  transition: width 1s ease;
+}
+.divider-top.show { width: 80%; }
+
+.divider-bottom {
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  margin: 8px auto;
+  transition: width 1s ease;
+}
+.divider-bottom.show { width: 80%; }
+
+.invite-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #000;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform 1s ease, opacity 0.8s ease;
+}
+.invite-title.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.invite-time, .invite-date {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 1s ease, opacity 1s ease;
+}
+.invite-time.show,
+.invite-date.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Invite hero */
 .invite-hero {
-  font-family: 'Great Vibes', cursive; /* đổi font */
-   color: #e6a4b4;
-
+  font-family: 'Great Vibes', cursive;
+  color: #e6a4b4;
   font-size: 2.5rem;
   font-weight: bold;
   position: relative;
@@ -83,24 +185,22 @@ button:hover { opacity: 0.85; }
   top: 50%;
   width: 60px;
   height: 2px;
-  background: linear-gradient(to right, transparent, #d98880);
 }
-
 .invite-hero::before {
   left: -70px;
+  background: linear-gradient(to right, transparent, #d98880);
 }
-
 .invite-hero::after {
   right: -70px;
   background: linear-gradient(to left, transparent, #d98880);
 }
 
-/* Chữ phụ trượt lên */
+/* Invite sub */
 .invite-sub {
-   font-family: 'Cormorant Garamond', serif;
-   font-size: 1rem;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
   opacity: 0;
-   color: #777;
+  color: #777;
   transform: translateY(20px);
   transition: transform 2s ease, opacity 1s ease;
 }
@@ -109,7 +209,23 @@ button:hover { opacity: 0.85; }
   transform: translateY(0);
 }
 
-/* Tim bay ngang (swing) */
+/* Title main */
+.title-main {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  color: #d98880;
+}
+@keyframes zoomTitle {
+  0%   { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+.title-main.show {
+  animation: zoomTitle 1s ease-out forwards;
+}
+
+/* Falling hearts */
 .falling-heart {
   position: fixed;
   font-size: 24px;
@@ -121,39 +237,47 @@ button:hover { opacity: 0.85; }
   animation-timing-function: linear;
 }
 @keyframes swingFall {
-  0%   { transform: translateX(0) translateY(-50px) rotate(0deg); opacity: 0; }
+  0%   { transform: translateX(0)    translateY(-50px) rotate(0deg);   opacity: 0; }
   10%  { opacity: 1; }
-  25%  { transform: translateX(20px) translateY(20vh) rotate(-15deg); }
-  50%  { transform: translateX(-20px) translateY(40vh) rotate(15deg); }
-  75%  { transform: translateX(20px) translateY(60vh) rotate(-15deg); }
-  100% { transform: translateX(0) translateY(80vh) rotate(0deg); opacity: 0; }
-}
-/* .title-main {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 0.2rem;
-  color: #d98880;
-} */
-.subtitle {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: #555;
+  25%  { transform: translateX(20px)  translateY(20vh)  rotate(-15deg); }
+  50%  { transform: translateX(-20px) translateY(40vh)  rotate(15deg);  }
+  75%  { transform: translateX(20px)  translateY(60vh)  rotate(-15deg); }
+  100% { transform: translateX(0)    translateY(80vh)  rotate(0deg);   opacity: 0; }
 }
 
-/* Lịch */
-.calendar {
-  max-width: 600px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0.5rem; /* nhỏ lại cho mobile */
+/* Names */
+.groom-name, .bride-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #d98880;
+  text-shadow: 0 2px 8px rgba(217,136,128,0.3);
 }
+.role-label {
+  font-family: 'Lora', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b76e79;
+  opacity: 0.8;
+  position: relative;
+}
+
+/* Hen image */
+#henImg {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+#henImg.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Calendar */
 .day {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1; /* FIX QUAN TRỌNG */
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,114 +290,221 @@ button:hover { opacity: 0.85; }
   transform: scale(1.1);
   background-color: #ffd9e6;
 }
-
-/* Trái tim bay */
-.heart {
-  position: relative;
+.day.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition-delay: var(--delay, 0s);
+  overflow: visible;
 }
-.heart span {
+.day.reveal.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.day .day-heart {
   position: absolute;
-  font-size: 1rem;
-  animation: floatHeart 4s ease-in-out infinite;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(0) scale(0.8);
+  font-size: 0.8rem;
+  color: #ff4d6d;
+  opacity: 0;
+  pointer-events: none;
+  animation: flyHeart 1s forwards;
 }
-@keyframes floatHeart {
-  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-  25% { transform: translateY(-10px) translateX(5px) rotate(-10deg); }
-  50% { transform: translateY(-20px) translateX(-5px) rotate(10deg); }
-  75% { transform: translateY(-10px) translateX(5px) rotate(-5deg); }
-}
-
-/* Tháng */
-.month-label {
-  grid-column: span 7;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #d98880;
+@keyframes flyHeart {
+  0%   { opacity: 1; transform: translateX(-50%) translateY(0)    scale(0.8) rotate(0deg);  }
+  25%  {             transform: translateX(-50%) translateY(-10px) scale(1)   rotate(-10deg); }
+  50%  {             transform: translateX(-50%) translateY(-25px) scale(1.1) rotate(10deg);  }
+  75%  {             transform: translateX(-50%) translateY(-40px) scale(1)   rotate(-5deg);  }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-60px) scale(0.8) rotate(0deg);  }
 }
 @media (max-width: 480px) {
-  .calendar {
-    gap: 0.4rem;
-  }
-
-  .day {
-    font-size: 0.9rem;
-    border-radius: 12px;
-  }
-}
-/* / */
-.invite-container {
-  position: relative;
-  overflow: hidden;
+  .day { font-size: 0.9rem; border-radius: 12px; }
 }
 
-/* Gạch dài ra 2 bên */
-.divider {
+/* Countdown */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@600&display=swap');
+
+.cd-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #b89b5e;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.cd-line {
+  width: 70px;
   height: 2px;
+  background: #b89b5e;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+}
+.cd-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.box {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  padding: 15px 20px;
+  min-width: 70px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.box span {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #3b3b3b;
+  transition: transform 0.3s ease;
+}
+.box span.change { animation: flip 0.5s ease forwards; }
+@keyframes flip {
+  0%   { transform: rotateX(0deg); }
+  50%  { transform: rotateX(90deg); color: #b89b5e; }
+  100% { transform: rotateX(0deg); }
+}
+.box small {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+.countdown-box .box { transition: all 0.8s ease; }
+
+/* Countdown reveal directions */
+.cd-left  { transform: translateX(-80px); opacity: 0; }
+.cd-left.show  { transform: translateX(0); opacity: 1; }
+.cd-right { transform: translateX(80px);  opacity: 0; }
+.cd-right.show { transform: translateX(0); opacity: 1; }
+.cd-top   { transform: translateY(-80px); opacity: 0; }
+.cd-top.show   { transform: translateY(0); opacity: 1; }
+.cd-bottom{ transform: translateY(80px);  opacity: 0; }
+.cd-bottom.show{ transform: translateY(0); opacity: 1; }
+
+/* Film Album */
+.film-album {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 80px;
+}
+.film-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.film-frame {
+  position: relative;
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  width: 260px;
+}
+.film-frame::before,
+.film-frame::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: radial-gradient(circle, transparent 4px, #111 5px);
+  background-size: 20px 10px;
+}
+.film-frame::before { top: -10px; }
+.film-frame::after  { bottom: -10px; }
+.film-photo {
+  background: #fff;
+  padding: 6px;
+  margin-bottom: 12px;
+}
+.film-photo img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #ffffff;
+}
+.film-photo p {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.film-photo.reveal-bottom {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+.film-photo.reveal-bottom.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Sticker */
+.sticker-below {
+  width: 100px;
+  transform: rotate(180deg);
+  animation: floatSticker 3s ease-in-out infinite alternate;
+}
+@keyframes floatSticker {
+  0%   { transform: rotate(180deg) translateY(0px);   }
+  50%  { transform: rotate(180deg) translateY(-10px); }
+  100% { transform: rotate(180deg) translateY(0px);   }
+}
+
+/* Love Message */
+.love-message-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.love-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.love-text-bg {
   background-color: #d98880;
-  width: 0; /* bắt đầu 0, sau animate ra dài */
-  margin: 8px auto;
-  transition: width 1s ease;
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
 }
-.divider.show { width: 150px; } /* dài ra */
-.divider-top { margin-bottom: 12px; }
-.divider-bottom { margin-top: 12px; }
-
-/* Chữ */
-.invite-title {
+.love-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 2rem; /* chữ to hơn */
-  color: #000;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: transform 1s ease, opacity 0.8s ease;
+  margin-bottom: 1rem;
 }
-.invite-title.show {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.invite-time, .invite-date {
+.love-text {
   font-family: 'Lora', serif;
-  font-size: 1.25rem;
-  font-weight: 800; /* đậm hơn */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 1s ease, opacity 1s ease;
-}
-.invite-time.show, .invite-date.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* Divider Top trượt từ trái */
-.divider-top{
-  width: 0;               /* ban đầu 0 */
-  height: 1px;
-  background-color: #000; /* màu đen */
-  margin: 8px auto;
-  transition: width 1s ease;
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
-/* Khi show thì dài ra */
-.divider-top.show {
-  width: 80%; /* hoặc 100% nếu muốn full */
-}
-
-/* Divider Bottom trượt từ phải */
-.divider-bottom {
-  width: 0; 
-  height: 1px;
-  background-color: #000; 
-  margin: 8px auto;
-  transition: width 1s ease;
-}
-
-/* Khi show thì dài ra */
-.divider-bottom.show {
-  width: 80%;
-}
-/* Phần form RSVP */
+/* RSVP */
 .rsvp-section {
   background: #fff9f9;
   padding: 3rem 2rem;
@@ -281,16 +512,12 @@ button:hover { opacity: 0.85; }
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
-.rsvp-section:hover {
-  transform: translateY(-5px);
-}
-
+.rsvp-section:hover { transform: translateY(-5px); }
 .rsvp-title {
   font-family: 'Great Vibes', cursive;
   color: #d98880;
   letter-spacing: 1px;
 }
-
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form textarea {
@@ -311,7 +538,6 @@ button:hover { opacity: 0.85; }
   box-shadow: 0 0 10px rgba(217,136,128,0.3);
   outline: none;
 }
-
 .rsvp-form select {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><polygon points='0,0 14,0 7,8' fill='%23d98880'/></svg>");
@@ -320,7 +546,6 @@ button:hover { opacity: 0.85; }
   background-size: 12px 8px;
   padding-right: 40px;
 }
-
 .rsvp-btn {
   font-family: 'Great Vibes', cursive;
   background: linear-gradient(135deg, #ffb6c1, #d98880);
@@ -346,443 +571,8 @@ button:hover { opacity: 0.85; }
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
-/* Album ảnh cưới */
-.wedding-album img.show {
-  opacity: 1;
-  transform: scale(1);
-  height: 350px;
-  transition: opacity 1s ease, transform 1s ease;
-}
 
-.reveal-left,
-.reveal-right {
-  opacity: 0;
-  transform: translateX(0);
-  transition: all 1s ease;
-}
-
-.reveal-left { transform: translateX(-100px); }
-.reveal-right { transform: translateX(100px); }
-
-.reveal-left.show,
-.reveal-right.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-.title-main {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 0.2rem;
-  color: #d98880;
-  /* opacity: 0; */
-  /* transform: scale(0.5); */
-}
-
-@keyframes zoomTitle {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.title-main.show {
-  animation: zoomTitle 1s ease-out forwards;
-}/* ===== WRAPPER ===== */
-.film-album {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  margin-top: 80px;
-}
-
-/* ===== TEXT ===== */
-.film-text {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-size: 16px;
-  letter-spacing: 3px;
-  color: #333;
-}
-
-/* ===== FILM ===== */
-.film-frame {
-  position: relative;
-  background: #111;
-  padding: 15px;
-  border-radius: 10px;
-  width: 260px;
-}
-
-/* 🔥 FIX LỖ FILM (dùng radial thay vì linear) */
-.film-frame::before,
-.film-frame::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background: radial-gradient(circle, transparent 4px, #111 5px);
-  background-size: 20px 10px;
-}
-
-.film-frame::before {
-  top: -10px;
-}
-
-.film-frame::after {
-  bottom: -10px;
-}
-
-/* ===== ẢNH ===== */
-.film-photo {
-  background: #fff;
-  padding: 6px;
-  margin-bottom: 12px;
-}
-
-.film-photo img {
-  width: 100%;
-  height: 180px; /* giảm chiều cao */
-  object-fit: contain;
-  background: #ffffff; /* nền đen giống film */
-}
-
-.film-photo p {
-  text-align: center;
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-.love-message-wrapper {
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.love-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.love-text-bg {
-  background-color: #d98880; /* đỏ hồng sang trọng */
-  color: #fff;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.love-title {
-  font-family: 'Great Vibes', cursive;
-  margin-bottom: 1rem;
-}
-
-.love-text {
-  font-family: 'Lora', serif;
-  font-size: 1.125rem;
-  line-height: 1.8;
-}
-.groom-name, .bride-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  color: #d98880;
-  text-shadow: 0 2px 8px rgba(217,136,128,0.3);
-}
-.role-label {
-  font-family: 'Lora', serif;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  color: #b76e79; /* hồng trầm sang */
-  opacity: 0.8;
-
-  position: relative;
-}
-
-/* Gạch nhỏ dưới chữ */
-.groom-name, .bride-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  color: #d98880;
-  text-shadow: 0 2px 8px rgba(217,136,128,0.3);
-}
-#henImg {
-  transform: translateY(-50px);
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-#henImg.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-.reveal, .reveal-left, .reveal-right {
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-  will-change: transform, opacity; /* giúp render mượt */
-}
-
-.reveal-left.show { transform: translateX(0); opacity: 1; }
-.reveal-right.show { transform: translateX(0); opacity: 1; }
-.reveal.show { opacity: 1; }
-.reveal-left { transform: translateX(-80px); }
-.reveal-right { transform: translateX(80px); }
-.reveal {
-  opacity: 0;
-  transform: translateY(40px); /* bắt đầu ở dưới */
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0); /* trượt lên vị trí ban đầu */
-}
-.day.reveal {
-  opacity: 0;
-  transform: translateY(40px) scale(0.9);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  transition-delay: var(--delay, 0s);
-  position: relative;
-  overflow: visible; /* để trái tim không bị cắt */
-}
-
-.day.reveal.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Trái tim bay lên */
-.day .day-heart {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(0) scale(0.8);
-  font-size: 0.8rem;
-  color: #ff4d6d;
-  opacity: 0;
-  pointer-events: none;
-  animation: flyHeart 1s forwards;
-}
-
-@keyframes flyHeart {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(0.8) rotate(0deg);
-  }
-  25% {
-    transform: translateX(-50%) translateY(-10px) scale(1) rotate(-10deg);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-25px) scale(1.1) rotate(10deg);
-  }
-  75% {
-    transform: translateX(-50%) translateY(-40px) scale(1) rotate(-5deg);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-60px) scale(0.8) rotate(0deg);
-    opacity: 0;
-  }
-}
-.film-photo.reveal-bottom {
-  opacity: 0;
-  transform: translateY(40px) scale(0.9);
-  transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.film-photo.reveal-bottom.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.film-text {
-  display: flex;
-  flex-direction: column; /* chữ trên, sticker dưới */
-  align-items: center;    /* căn giữa theo chiều ngang */
-  gap: 10px;              /* khoảng cách giữa chữ và sticker */
-}
-
-.sticker-below {
-  width: 100px;
-  transform: rotate(180deg); /* xoay đúng chiều */
-  animation: floatSticker 3s ease-in-out infinite alternate;
-}
-
-@keyframes floatSticker {
-  0%   { transform: rotate(180deg) translateY(0px); }
-  50%  { transform: rotate(180deg) translateY(-10px); }
-  100% { transform: rotate(180deg) translateY(0px); }
-}
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@600&display=swap');
-
-.countdown-compact {
-  text-align: center;
-  padding: 40px 10px;
-  background: linear-gradient(135deg, #fef9f4, #fffdfb);
-  font-family: 'Poppins', sans-serif;
-}
-
-.cd-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px; /* nhỏ hơn */
-  color: #b89b5e;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.cd-line {
-  width: 70px;
-  height: 2px;
-  background: #b89b5e;
-  margin: 0 auto 20px;
-  border-radius: 5px;
-}
-
-.cd-wrap {
-  display: flex;
-  justify-content: center;
-  gap: 10px; /* ô gần nhau */
-  flex-wrap: nowrap; /* nằm cùng hàng */
-}
-
-/* Mỗi ô box nhỏ gọn */
-.box {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 15px;
-  padding: 15px 20px; /* nhỏ hơn */
-  min-width: 70px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-.box span {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px; /* nhỏ hơn */
-  font-weight: 700;
-  color: #3b3b3b;
-  transition: transform 0.3s ease;
-}
-
-/* Flip animation */
-.box span.change {
-  animation: flip 0.5s ease forwards;
-}
-
-@keyframes flip {
-  0% { transform: rotateX(0deg); }
-  50% { transform: rotateX(90deg); color: #b89b5e; }
-  100% { transform: rotateX(0deg); }
-}
-
-.box small {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px; /* nhỏ hơn */
-  color: #555;
-  letter-spacing: 1px;
-  margin-top: 3px;
-}
-/* LEFT */
-.cd-left {
-  transform: translateX(-80px);
-  opacity: 0;
-}
-.cd-left.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* RIGHT */
-.cd-right {
-  transform: translateX(80px);
-  opacity: 0;
-}
-.cd-right.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* TOP */
-.cd-top {
-  transform: translateY(-80px);
-  opacity: 0;
-}
-.cd-top.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* BOTTOM */
-.cd-bottom {
-  transform: translateY(80px);
-  opacity: 0;
-}
-.cd-bottom.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* chung */
-.countdown-box .box {
-  transition: all 0.8s ease;
-}
-/* ===== THANK YOU ===== */
-.thankyou-title{
-  font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
-  color: #fff;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: 1s;
-}
-
-.thankyou-title.show{
-  opacity: 1;
-  transform: scale(1);
-}
-
-.thankyou-text{
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  color: #fff;
-  line-height: 1.8;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 1s;
-}
-
-.thankyou-text.show{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.thankyou-sub{
-  font-size: 0.9rem;
-  color: #eee;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 1s;
-}
-
-.thankyou-sub.show{
-  opacity: 1;
-  transform: translateY(0);
-}
-/* SLIDE */
+/* Slideshow */
 .slider {
   position: relative;
   width: 100%;
@@ -791,21 +581,17 @@ button:hover { opacity: 0.85; }
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
-
 .slides {
   display: flex;
   height: 100%;
   transition: transform 0.8s ease;
 }
-
 .slides img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
-
-/* NÚT */
 .prev, .next {
   position: absolute;
   top: 50%;
@@ -817,18 +603,14 @@ button:hover { opacity: 0.85; }
   border-radius: 50%;
   cursor: pointer;
 }
-
 .prev { left: 15px; }
 .next { right: 15px; }
-
-/* THUMBNAIL */
 .thumbnails {
   display: flex;
   gap: 10px;
   margin-top: 15px;
   overflow-x: auto;
 }
-
 .thumbnails img {
   width: 80px;
   height: 60px;
@@ -838,16 +620,47 @@ button:hover { opacity: 0.85; }
   cursor: pointer;
   transition: 0.3s;
 }
-
-.thumbnails img:hover {
-  opacity: 1;
-}
-
+.thumbnails img:hover { opacity: 1; }
 .thumbnails img.active {
   opacity: 1;
   border: 2px solid #ff4d6d;
 }
-html, body {
-  overflow-x: hidden;  /* ngăn cuộn ngang */
-  touch-action: pan-y; /* cho phép cuộn dọc trên mobile, chặn ngang */
+
+/* Thank You */
+.thankyou-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: 1s;
+}
+.thankyou-title.show { opacity: 1; transform: scale(1); }
+
+.thankyou-text {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+.thankyou-text.show { opacity: 1; transform: translateY(0); }
+
+.thankyou-sub {
+  font-size: 0.9rem;
+  color: #eee;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+.thankyou-sub.show { opacity: 1; transform: translateY(0); }
+
+/* Float heart */
+@keyframes floatHeart {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25%  { transform: translateY(-10px) translateX(5px)  rotate(-10deg); }
+  50%  { transform: translateY(-20px) translateX(-5px) rotate(10deg);  }
+  75%  { transform: translateY(-10px) translateX(5px)  rotate(-5deg);  }
 }

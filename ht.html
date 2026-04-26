@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiệp cưới</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: #2b0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 390px;
+  max-width: 92vw;
+
+  /* ❌ bỏ aspect-ratio */
+  height: auto;
+
+  box-sizing: border-box;
+  padding: 30px 20px;
+
+  background: radial-gradient(circle at 30% 20%, #c62828, #7a0f0f 70%);
+  border-radius: 20px;
+  color: #f5d28a;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* texture */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/red-fabric.png');
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* ===== RỒNG ===== */
+.dragon {
+  position: absolute;
+  width: 250px;
+  opacity: 0.18;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 👉 RỒNG TRÁI (giữ nguyên) */
+.dragon.left {
+  top: -110px;
+  left: -110px;
+  transform: rotate(35deg);
+}
+
+/* 👉 RỒNG PHẢI (lật để quay vào giữa) */
+.dragon.right {
+  bottom: -110px;
+  right: -110px;
+  transform: scaleX(-1) rotate(140deg);
+}
+
+/* ===== ICON ===== */
+.circle {
+  width: 75px;
+  height: 75px;
+  background: #f5d28a;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 30px rgba(245,210,138,0.8);
+  position: relative;
+  z-index: 2;
+}
+
+.icon {
+  width: 60%;
+}
+
+/* ===== TEXT ===== */
+.names {
+  font-size: 30px;
+  margin: 5px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.and {
+  font-size: 18px;
+  margin: 4px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.date {
+  font-size: 17px;
+  margin: 12px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.invite {
+  font-size: 17px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.guest {
+  display: inline-block;
+  background: #7a0f0f;
+  padding: 8px 20px;
+  border-radius: 12px;
+  margin: 8px 0;
+  font-size: 17px;
+  position: relative;
+  z-index: 2;
+}
+
+.desc {
+  font-size: 14px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  margin-top: 20px;
+  background: linear-gradient(#f5d28a, #e6b96c);
+  color: #7a0f0f;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- RỒNG (GIỮ NGUYÊN FILE CỦA BẠN) -->
+  <img src="img/dragon_left-removebg-preview.png" class="dragon left">
+  <img src="img/dragon_right-removebg-preview.png" class="dragon right">
+
+  <!-- ICON -->
+  <div class="circle">
+    <img src="img/chu-hy-tieng-trung-1-removebg-preview.png" class="icon">
+  </div>
+
+  <!-- TEXT -->
+  <div class="names">Hoàng Nam</div>
+  <div class="and">&</div>
+  <div class="names">Thanh Tú</div>
+
+  <div class="date">1 tháng 2, 2026</div>
+
+  <div class="invite">Kính mời</div>
+  <div class="guest">Anh Tuấn</div>
+
+  <div class="desc">
+    đến dự buổi tiệc chung vui cùng gia đình
+  </div>
+
+  <div class="btn">Mở thiệp</div>
+
+</div>
+
+</body>
+</html>

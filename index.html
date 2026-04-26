@@ -4,353 +4,276 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thiệp cưới</title>
-
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@300;400;700&display=swap" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="style.css"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,300;0,400;0,700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- OPEN SCREEN -->
-<div id="openScreen" class="fixed inset-0 flex z-50 bg-black">
-  <div id="leftDoor" class="door w-1/2 bg-black"></div>
-  <div id="rightDoor" class="door w-1/2 flex items-center justify-center">
-    <div class="text-center">
-      <button onclick="openCard()" class="mt-6 px-6 py-3 rounded-full bg-pink-500 text-white hover:bg-pink-600 transition">Mở thiệp</button>
-    </div>
-  </div>
-</div>
-
 <!-- MAIN -->
-<div id="card" class="hidden">
+<div id="card">
 
   <!-- HERO FULL WIDTH -->
-<section class="relative w-full">
-  <img src="img/DSC05585.JPG" class="w-full h-[120vh] object-cover">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
-  <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white"></div>
-  <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-transparent"></div>
-  <div class="absolute inset-0 flex flex-col items-center justify-start pt-10 text-center">
+  <section class="relative w-full">
+    <img src="img/le-nam-studio-985840.jpg" class="w-full h-[120vh] object-cover" fetchpriority="high">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-start pt-10 text-center">
       <h1 class="hero-text">Đoàn Quang & Như Quỳnh</h1>
-  </div>
-
-  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-gray-800 invite-container">
-    <h1 class="invite-title reveal">Thư tiệc mời cưới</h1>
-    <div class="divider divider-top reveal-left"></div>
-    <p class="invite-time reveal-bottom">18:00 Thứ Tư</p>
-    <p class="invite-date reveal-bottom">14/04/2026</p>
-    <div class="divider divider-bottom reveal-right"></div>
-  </div>
-</section>
+    </div>
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-gray-800 invite-container">
+      <h1 class="invite-title reveal">Thư tiệc mời cưới</h1>
+      <div class="divider divider-top reveal-left"></div>
+      <p class="invite-time reveal-bottom">18:00 Thứ Tư</p>
+      <p class="invite-date reveal-bottom">14/04/2026</p>
+      <div class="divider divider-bottom reveal-right"></div>
+    </div>
+  </section>
 
   <!-- MỜI KHÁCH -->
   <section class="max-w-3xl mx-auto px-4 text-center mt-10">
-  <p class="text-gray-500 tracking-widest uppercase text-sm">
-    Trân trọng kính mời
-  </p>
+    <p class="text-gray-500 tracking-widest uppercase text-sm">Trân trọng kính mời</p>
+    <p class="invite-name text-2xl font-semibold mt-2" id="guestName"></p>
+    <p class="text-gray-600 text-sm mt-3">Đến dự buổi tiệc chung vui cùng gia đình chúng tôi</p>
+  </section>
 
-  <p class="invite-name text-2xl font-semibold mt-2" id="guestName">
-    
-  </p>
-
-  <p class="text-gray-600 text-sm mt-3">
-    Đến dự buổi tiệc chung vui cùng gia đình chúng tôi
-  </p>
-</section>
   <!-- THÔNG GIA -->
- <section class="mt-16 max-w-3xl mx-auto px-4 reveal-container">
-  <!-- Ảnh chén nằm trên -->
-  <div class="flex justify-center mb-4">
-    <img  id="henImg" src="img/hén (1).png" class="w-14 h-14 object-contain">
-  </div>
-
-  <!-- 2 bên nhà trai và gái -->
-  <div class="flex">
-    
-    <!-- Nhà trai -->
-    <div class="reveal-left w-1/2 text-center border-r border-gray-300 pr-4">
-      <p class="text-sm text-gray-500 font-semibold mb-2">NHÀ TRAI</p>
-      <p class="text-black">Ông: Đoàn Văn Binh</p>
-      <p class="text-black">Bà: Trần Thị Thanh</p>
-      <p class="text-xs text-gray-500 mt-2">(số nhà 26-ngõ 15-Bảo Lộc-Phúc Thọ)</p>
+  <section class="mt-16 max-w-3xl mx-auto px-4 reveal-container">
+    <div class="flex justify-center mb-4">
+      <img id="henImg" src="img/hén (1).png" class="w-14 h-14 object-contain" loading="lazy">
     </div>
-
-    <!-- Nhà gái -->
-    <div class="reveal-right w-1/2 text-center pl-4">
-      <p class="text-sm text-gray-500 font-semibold mb-2">NHÀ GÁI</p>
-      <p class="text-black">Ông: Kiều Trí Thao</p>
-      <p class="text-black">Bà: Nguyễn Thị Vân</p>
-      <p class="text-xs text-gray-500 mt-2">(số nhà 96-ngõ 7-Thọ Lộc-Phúc Thọ)</p>
+    <div class="flex">
+      <div class="reveal-left w-1/2 text-center border-r border-gray-300 pr-4">
+        <p class="text-sm text-gray-500 font-semibold mb-2">NHÀ TRAI</p>
+        <p class="text-black">Ông: Đoàn Văn A</p>
+        <p class="text-black">Bà: Trần Thị B</p>
+        <p class="text-xs text-gray-500 mt-2">(số nhà 26-ngõ 15-Bảo Lộc-Phúc Thọ)</p>
+      </div>
+      <div class="reveal-right w-1/2 text-center pl-4">
+        <p class="text-sm text-gray-500 font-semibold mb-2">NHÀ GÁI</p>
+        <p class="text-black">Ông: Khuất Văn A</p>
+        <p class="text-black">Bà: Nguyễn Thị B</p>
+        <p class="text-xs text-gray-500 mt-2">(số nhà 96-ngõ 7-Thọ Lộc-Phúc Thọ)</p>
+      </div>
     </div>
+  </section>
 
-  </div>
-
-</section>
   <!-- LỜI BÁO -->
   <section class="mt-16 text-center reveal">
     <p class="tracking-[6px] text-gray-400 text-xs">TRÂN TRỌNG BÁO TIN</p>
     <h2 class="title text-2xl text-black mt-4">LỄ THÀNH HÔN</h2>
   </section>
 
-  <!-- KHÚC 1: Chú rể & Cô dâu -->
- <section class="mt-16 reveal text-center max-w-3xl mx-auto px-4">
-  <div class="flex items-center justify-center gap-6 mb-6">
-    <div>
-      <p class="role-label mb-2">Chú rể</p>
-      <p class="text-xl font-semibold groom-name">Đoàn Quang</p>
+  <!-- CHÚ RỂ & CÔ DÂU -->
+  <section class="mt-16 reveal text-center max-w-3xl mx-auto px-4">
+    <div class="flex items-center justify-center gap-6 mb-6">
+      <div>
+        <p class="role-label mb-2">Chú rể</p>
+        <p class="text-xl font-semibold groom-name">Đoàn Quang</p>
+      </div>
+      <div class="relative w-24 h-24">
+        <canvas id="heartCanvas" class="absolute inset-0 w-full h-full"></canvas>
+      </div>
+      <div>
+        <p class="role-label mb-2">Cô dâu</p>
+        <p class="text-xl font-semibold bride-name">Như Quỳnh</p>
+      </div>
     </div>
-
-    <!-- Trái tim SVG lớn -->
-     <div class="relative w-24 h-24">
-      <canvas id="heartCanvas" class="absolute inset-0 w-full h-full"></canvas>
+    <div class="grid grid-cols-2 gap-4">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy" class="reveal-left h-[340px] w-full object-cover rounded-2xl brightness-95">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy" class="reveal-right h-[340px] w-full object-cover rounded-2xl brightness-95">
     </div>
-
-
-    <div>
-      <p class="role-label mb-2">Cô dâu</p>
-      <p class="text-xl font-semibold bride-name">Như Quỳnh</p>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-2 gap-4">
-    <img src="img/DSC05659.JPG" class="reveal-left h-[340px] w-full object-cover rounded-2xl brightness-95" >
-    <img src="img/DSC06887.JPG" class="reveal-right h-[340px] w-full object-cover rounded-2xl brightness-95" >
-  </div>
-</section>
+  </section>
 
   <!-- THƯ MỜI -->
- <section class="mt-16 text-center relative">
-  <h1 class="invite-hero reveal">THƯ MỜI</h1>
-  <p class="invite-sub reveal mt-4 text-lg">THAM DỰ LỄ CƯỚI</p>
-  <h1 class="title-main reveal">Đoàn Quang</h1>
-  <h1 class="title-main reveal">&</h1>
-  <h1 class="title-main reveal">Như Quỳnh</h1>
-</section>
+  <section class="mt-16 text-center relative">
+    <h1 class="invite-hero reveal">THƯ MỜI</h1>
+    <p class="invite-sub reveal mt-4 text-lg">THAM DỰ LỄ CƯỚI</p>
+    <h1 class="title-main reveal">Đoàn Quang</h1>
+    <h1 class="title-main reveal">&</h1>
+    <h1 class="title-main reveal">Như Quỳnh</h1>
+  </section>
 
-  <!-- KHÚC 2: Hình ảnh -->
- <section class="mt-16 reveal max-w-3xl mx-auto px-4">
-  <div class="grid grid-cols-3 gap-4 items-end">
-    <img src="img/DSC06486.JPG" 
-         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-left" >
-    <img src="img/DSC05585.JPG" 
-         class="h-[240px] w-full object-cover rounded-2xl scale-105 brightness-95" >
-    <img src="img/DSC05360.JPG" 
-         class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-right" >
-  </div>
-</section>
-
-  <!-- KHÚC 3: NGÀY GIỜ -->
- <section class="mt-20 text-center reveal max-w-3xl mx-auto px-4">
-  <h1 class="text-2xl font-bold text-pink-400 text-center mt-4 mb-4 reveal">
-    LỄ THÀNH HÔN
-  </h1>
-
-  <div class="flex items-center justify-center text-center gap-6">
-    <div class="flex flex-col items-center reveal-left">
-      <p class="text-sm text-gray-500">Giờ</p>
-      <p class="text-lg font-semibold text-black">14:00</p>
+  <!-- HÌNH ẢNH 3 CỘT -->
+  <section class="mt-16 reveal max-w-3xl mx-auto px-4">
+    <div class="grid grid-cols-3 gap-4 items-end">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy" class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-left">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy" class="h-[240px] w-full object-cover rounded-2xl scale-105 brightness-95">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy" class="h-[200px] w-full object-cover rounded-2xl brightness-95 reveal-right">
     </div>
+  </section>
 
-    <div class="w-px h-16 bg-gray-300"></div>
-
-    <div class="flex flex-col items-center reveal">
-      <p class="text-sm text-gray-500">Chủ Nhật</p>
-      <p class="text-4xl font-bold text-black">14</p>
-      <p class="text-sm text-gray-500">Tháng 3</p>
+  <!-- NGÀY GIỜ -->
+  <section class="mt-20 text-center reveal max-w-3xl mx-auto px-4">
+    <h1 class="text-2xl font-bold text-pink-400 text-center mt-4 mb-4 reveal">LỄ THÀNH HÔN</h1>
+    <div class="flex items-center justify-center text-center gap-6">
+      <div class="flex flex-col items-center reveal-left">
+        <p class="text-sm text-gray-500">Giờ</p>
+        <p class="text-lg font-semibold text-black">14:00</p>
+      </div>
+      <div class="w-px h-16 bg-gray-300"></div>
+      <div class="flex flex-col items-center reveal">
+        <p class="text-sm text-gray-500">Chủ Nhật</p>
+        <p class="text-4xl font-bold text-black">14</p>
+        <p class="text-sm text-gray-500">Tháng 3</p>
+      </div>
+      <div class="w-px h-16 bg-gray-300"></div>
+      <div class="flex flex-col items-center reveal-right">
+        <p class="text-sm text-gray-500">Năm</p>
+        <p class="text-lg font-semibold text-black">2026</p>
+      </div>
     </div>
+    <p class="mt-2 reveal"><i>(tức ngày 25/10 năm ất tỵ)</i></p>
+  </section>
 
-    <div class="w-px h-16 bg-gray-300"></div>
-
-    <div class="flex flex-col items-center reveal-right">
-      <p class="text-sm text-gray-500">Năm</p>
-      <p class="text-lg font-semibold text-black">2026</p>
+  <!-- COUNTDOWN -->
+  <section class="countdown-box mt-4">
+    <p class="cd-label text-center reveal">Save The Date</p>
+    <div class="cd-line reveal"></div>
+    <div class="cd-wrap">
+      <div class="box reveal cd-left"><span id="d">00</span><small>Ngày</small></div>
+      <div class="box reveal cd-top"><span id="h">00</span><small>Giờ</small></div>
+      <div class="box reveal cd-bottom"><span id="m">00</span><small>Phút</small></div>
+      <div class="box reveal cd-right"><span id="s">00</span><small>Giây</small></div>
     </div>
-  </div>
+  </section>
 
-  <p class="mt-2 reveal"><i>(tức ngày 25/10 năm ất tỵ)</i></p>
-</section>
-<section class="countdown-box mt-4">
-  <p class="cd-label text-center reveal">Save The Date</p>
-  <div class="cd-line reveal"></div>
-
-  <div class="cd-wrap">
-    <div class="box reveal cd-left"><span id="d">00</span><small>Ngày</small></div>
-    <div class="box reveal cd-top"><span id="h">00</span><small>Giờ</small></div>
-    <div class="box reveal cd-bottom"><span id="m">00</span><small>Phút</small></div>
-    <div class="box reveal cd-right"><span id="s">00</span><small>Giây</small></div>
-  </div>
-</section>
-<section>
-
-  <div class="max-w-md mx-auto mt-6 p-4 bg-white rounded-2xl shadow-lg">
-  <div class="text-center mb-4">
-  <div class="max-w-md mx-auto mt-10 p-5 bg-white rounded-2xl shadow-lg">
-  <div class="text-center mb-4">
-    <h2 id="calendar-month" class="text-2xl font-bold text-pink-400"></h2>
-    <p id="calendar-year" class="text-gray-500"></p>
-  </div>
-  <!-- Thứ -->
-  <div class="grid grid-cols-7 text-center text-sm font-semibold text-gray-500 mb-2">
-    <div>T2</div><div>T3</div>
-    <div>T4</div><div>T5</div><div>T6</div><div>T7</div><div>CN</div>
-  </div>
-    <!-- Ngày -->
-    <div id="calendar-days" class="grid grid-cols-7 gap-2"></div>
-  </div>
-  </div>
-
-</section>
-<!-- ALBUM ẢNH CƯỚI -->
-<section class="film-album reveal">
-  <div class="film-text reveal-left-film">
-  <div class="text-lines">
-    <span>MY LOVE</span>
-    <span>FOREVER</span>
-  </div>
-  <!-- <img src="img/chau2-removebg-preview.png" class="sticker-below" /> -->
-</div>
-
-  <div class="film-frame reveal-right">
-    <div class="film-photo reveal-bottom">
-      <img src="img/DSC06486.JPG"  />
-      <p>I love three things in this world</p>
+  <!-- LỊCH -->
+  <section>
+    <div class="max-w-md mx-auto mt-10 p-5 bg-white rounded-2xl shadow-lg">
+      <div class="text-center mb-4">
+        <h2 id="calendar-month" class="text-2xl font-bold text-pink-400"></h2>
+        <p id="calendar-year" class="text-gray-500"></p>
+      </div>
+      <div class="grid grid-cols-7 text-center text-sm font-semibold text-gray-500 mb-2">
+        <div>T2</div><div>T3</div><div>T4</div><div>T5</div><div>T6</div><div>T7</div><div>CN</div>
+      </div>
+      <div id="calendar-days" class="grid grid-cols-7 gap-2"></div>
     </div>
+  </section>
 
-    <div class="film-photo reveal-bottom">
-      <img src="img/DSC06480.JPG"  />
-      <p>Sun, moon and you</p>
+  <!-- ALBUM FILM -->
+  <section class="film-album reveal">
+    <div class="film-text reveal-left-film">
+      <div class="text-lines">
+        <span>MY LOVE</span>
+        <span>FOREVER</span>
+      </div>
     </div>
-
-    <div class="film-photo reveal-bottom">
-      <img src="img/DSC06410.JPG"  />
-      <p>And you forever</p>
+    <div class="film-frame reveal-right">
+      <div class="film-photo reveal-bottom">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <p>I love three things in this world</p>
+      </div>
+      <div class="film-photo reveal-bottom">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <p>Sun, moon and you</p>
+      </div>
+      <div class="film-photo reveal-bottom">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <p>And you forever</p>
+      </div>
     </div>
-  </div>
-</section>
-<section class="wedding-slideshow mt-16 max-w-4xl mx-auto px-4">
+  </section>
 
-  <!-- ẢNH LỚN -->
-  <div class="slider">
-    <div class="slides" id="slides">
-      <img src="img/DSC07037.JPG" >
-      <img src="img/DSC06140.JPG">
-      <img src="img/DSC06088.JPG">
-      <img src="img/DSC06058.JPG">
-      <img src="img/DSC05823.JPG">
-      <img src="img/DSC05777.JPG">
-      <img src="img/DSC05638.JPG">
-      <img src="img/DSC06480.JPG">
-      <img src="img/DSC06410.JPG">
-      <img src="img/DSC06486.JPG">
-      <img src="img/DSC06480.JPG">
-      <img src="img/DSC06410.JPG">
+  <!-- SLIDESHOW -->
+  <section class="wedding-slideshow mt-16 max-w-4xl mx-auto px-4">
+    <div class="slider">
+      <div class="slides" id="slides">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+        <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      </div>
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
     </div>
+    <div class="thumbnails" id="thumbs">
+      <img src="img/chup-anh-cuoi-28.jpg" class="active" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+      <img src="img/chup-anh-cuoi-28.jpg" loading="lazy">
+    </div>
+  </section>
 
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
+  <!-- LOVE MESSAGE -->
+  <section class="love-message-wrapper max-w-5xl mx-auto mt-16 rounded-2xl overflow-hidden shadow-lg">
+    <div class="love-photo">
+      <img src="img/DSC05601.JPG" loading="lazy" class="w-full h-[70vh] object-cover rounded-t-2xl">
+    </div>
+    <div class="love-text-bg bg-pink-600 text-white px-8 py-12 text-center">
+      <h2 class="love-title text-4xl md:text-5xl font-cursive mb-4">Our Love Story</h2>
+      <p class="love-text text-lg md:text-xl leading-relaxed">
+        "Giữa hàng triệu người trên thế giới,<br>
+        chúng ta đã tìm thấy nhau…<br>
+        và chọn ở lại bên nhau suốt đời."
+      </p>
+    </div>
+  </section>
 
-  <!-- ẢNH NHỎ -->
-  <div class="thumbnails" id="thumbs">
-    <img src="img/DSC07037.JPG" class="active" >
-    <img src="img/DSC06140.JPG">
-    <img src="img/DSC06088.JPG">
-    <img src="img/DSC06058.JPG" class="active">
-    <img src="img/DSC05823.JPG">
-    <img src="img/DSC05777.JPG">
-    <img src="img/DSC05638.JPG" class="active">
-    <img src="img/DSC06480.JPG">
-    <img src="img/DSC06410.JPG">
-    <img src="img/DSC06486.JPG" class="active">
-    <img src="img/DSC06480.JPG">
-    <img src="img/DSC06410.JPG">
-  </div>
-
-</section>
-<section class="love-message-wrapper max-w-5xl mx-auto mt-16 rounded-2xl overflow-hidden shadow-lg">
-
-  <!-- ẢNH -->
-  <div class="love-photo">
-    <img src="img/DSC05601.JPG" class="w-full h-[70vh] object-cover rounded-t-2xl">
-  </div>
-
-  <!-- NỀN ĐỎ + NỘI DUNG -->
-  <div class="love-text-bg bg-pink-600 text-white px-8 py-12 text-center">
-    <h2 class="love-title text-4xl md:text-5xl font-cursive mb-4">
-      Our Love Story
-    </h2>
-    <p class="love-text text-lg md:text-xl leading-relaxed">
-      “Giữa hàng triệu người trên thế giới,<br>
-      chúng ta đã tìm thấy nhau…<br>
-      và chọn ở lại bên nhau suốt đời.”
-    </p>
-  </div>
-
-</section>
   <!-- GOOGLE MAP -->
   <section class="mt-10 text-center reveal max-w-3xl mx-auto px-4">
-  <h3 class="text-lg font-semibold text-black mb-4">Tại Tư Gia Nhà Gái</h3>
-
-  <!-- MAP -->
-  <div class="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-xl">
-
-    <iframe 
-      src="https://www.google.com/maps?q=21.12377,105.5249&z=19&output=embed"
-      width="100%" 
-      height="100%" 
-      style="border:0;" 
-      >
-    </iframe>
-
-    <!-- overlay nhẹ cho sang -->
-    <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
-  </div>
-
-  <!-- Nút chỉ đường -->
-  <a href="https://maps.app.goo.gl/U4uwskUnST7Djb6z5" target="_blank">
-    <button class="mt-6 px-6 py-3 rounded-full bg-pink-500 text-white hover:bg-pink-600 transition shadow-lg mb-3">
-      📍 Chỉ đường tới đây
-    </button>
-  </a> <br>
-  <span>Địa chỉ: Ngõ 7 số nhà 96 Thôn Ổ Thôn , số nhà 96 , Xã Phúc Thọ-Hà Nội</span>
-</section>
+    <h3 class="text-lg font-semibold text-black mb-4">Tại Tư Gia Nhà Gái</h3>
+    <div class="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-xl">
+      <iframe
+        src="https://www.google.com/maps?q=21.12377,105.5249&z=19&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        loading="lazy">
+      </iframe>
+      <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+    </div>
+    <a href="https://maps.app.goo.gl/U4uwskUnST7Djb6z5" target="_blank">
+      <button class="mt-6 px-6 py-3 rounded-full bg-pink-500 text-white hover:bg-pink-600 transition shadow-lg mb-3">
+        📍 Chỉ đường tới đây
+      </button>
+    </a><br>
+    <span>Địa chỉ: Ngõ 7 số nhà 96 Thôn Ổ Thôn, Xã Phúc Thọ-Hà Nội</span>
+  </section>
 
   <!-- RSVP -->
   <section class="mt-20 pb-20 max-w-3xl mx-auto px-6 bg-white shadow-2xl rounded-3xl rsvp-section">
-  <h3 class="text-center text-3xl font-semibold text-gray-800 mb-8 rsvp-title">Xác nhận tham dự</h3>
-
-  <form class="rsvp-form">
-  <label for="name">Họ và tên</label>
-  <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
-
-  <label for="attendance">Tình trạng tham dự</label>
-  <select id="attendance" name="attendance" required>
-    <option value="" disabled selected>Chọn lựa chọn của bạn</option>
-    <option value="tham-du">Tham dự</option>
-    <option value="khong-tham-du">Không tham dự</option>
-  </select>
-
-  <label for="guestCount">Số người tham dự</label>
-  <input type="number" id="guestCount" name="guestCount" min="1" max="10" value="1" required>
-
-  <button type="submit mt-4" class="rsvp-btn">Gửi lời mời</button>
-</form>
-</section>
+    <h3 class="text-center text-3xl font-semibold text-gray-800 mb-8 rsvp-title">Xác nhận tham dự</h3>
+    <form class="rsvp-form">
+      <label for="name">Họ và tên</label>
+      <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
+      <label for="attendance">Tình trạng tham dự</label>
+      <select id="attendance" name="attendance" required>
+        <option value="" disabled selected>Chọn lựa chọn của bạn</option>
+        <option value="tham-du">Tham dự</option>
+        <option value="khong-tham-du">Không tham dự</option>
+      </select>
+      <label for="guestCount">Số người tham dự</label>
+      <input type="number" id="guestCount" name="guestCount" min="1" max="10" value="1" required>
+      <button type="submit" class="rsvp-btn">Gửi lời mời</button>
+    </form>
+  </section>
 
 </div>
-<!-- THANK YOU SECTION -->
+
+<!-- THANK YOU -->
 <section class="thankyou-section relative mt-20">
-  <!-- ẢNH -->
-  <img src="img/DSC05585.JPG" class="w-full h-[80vh] object-cover">
-  <!-- LỚP MỜ -->
+  <img src="img/chup-anh-cuoi-28.jpg" loading="lazy" class="w-full h-[80vh] object-cover">
   <div class="absolute inset-0 bg-black/40"></div>
-  <!-- NỘI DUNG -->
   <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-    <h2 class="thankyou-title reveal">
-      Thank You
-    </h2>
+    <h2 class="thankyou-title reveal">Thank You</h2>
     <p class="thankyou-text reveal mt-4">
       Cảm ơn bạn đã dành thời gian quý báu<br>
       đến chung vui cùng chúng tôi ❤️
@@ -360,19 +283,7 @@
     </p>
   </div>
 </section>
-<script src="script.js" defer>
-
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll("img");
-  images.forEach((img, index) => {
-    // Chỉ lazy load các ảnh không phải ảnh đầu tiên (hero)
-    if (index !== 0) {
-      img.setAttribute("loading", "lazy");
-    }
-  });
-});
-</script>
+<!-- <script src="wedding-effects.js"></script> -->
+<script src="script.js"></script>
 </body>
 </html>
